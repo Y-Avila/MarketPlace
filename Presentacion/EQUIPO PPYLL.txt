@@ -1,5 +1,7 @@
 DESCRIPCIÓN DEL PROYECTO
 
+Este reposiotorio se crea como parte del proyecto dirigido por MisionTic2022 en el marco de trabajo colaborativo y bajo la metodología SCRUM. Se alojarán diferentes archivos de trabajos de programación y se llevará el registro de cada uno de los cambios aportados por los integrantes del grupo. Se propone analizar, diseñar y construir una aplicación software que permita controlar las ventas físicas y virtuales de una empresa de manufactura y hacerles el correspondiente seguimiento.
+
 
 PRESENTACTIÓN MIEMBROS DEL EQUIPO PPYLL
 Soy Luis Carlos Guerra vivo en Valledupar
