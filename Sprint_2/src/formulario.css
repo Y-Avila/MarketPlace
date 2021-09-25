@@ -1,0 +1,42 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    outline: none;
+}
+a{
+    color: antiquewhite;
+}
+input, select, textarea, button{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60%;
+}
+button, label{
+    cursor: pointer;
+}
+select{
+    appearance: none;
+}
+select::-ms-expand{
+    display: none;
+}
+select:-moz-focusring{
+    color: transparent !important;
+    text-shadow: 0 0 0 var(--white);
+}
+textarea{
+    resize: horizontal;
+}
+@media screen and (min-width:600px){
+    .my-form .grid{
+        display: grid;
+        grid-gap: 1.5 rem;
+    }
+    my.form .grid-2{
+        grid-template-columns: 1fr 1fr;
+    }
+    my.form .grid-3{
+        grid-template-columns: auto auto auto;
+        align-items: center;
+    }
+} 
