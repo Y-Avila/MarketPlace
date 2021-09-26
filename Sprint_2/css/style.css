@@ -15,6 +15,25 @@ h2{
   
   }
 
+  h3{
+    color:#ffffff;
+    font-size: 1.3rem;
+    font-family: kalam;
+    text-align: right;
+    margin:0%;
+    margin-right: 2rem;
+  }
+
+  .modulo{
+    background-color:#3A0CA3;
+    max-width: 100%;
+    max-height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+
+  }
+
   #titleMU{
     margin-top:5%
   }
@@ -60,7 +79,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 5px;
-  margin: 25px;
+  margin: auto;
   }
   td{
       text-align: center;
@@ -125,12 +144,15 @@ table, th, td {
   padding: 10px;
   font-weight: 600;
   font-size: 20px;
-  color: #ffffff;
-  background-color: #1883ba;
+  color: #080808;
+  background-color: #d5d8db;
   border-radius: 6px;
   border: 2px solid #0016b0;
-  margin: 20px;
+  margin:0%;
 
+}
+#btnGuardar{
+  margin: 48%;
 }
 
 .botonEditar{
@@ -140,7 +162,7 @@ table, th, td {
   font-size: 15px;
   color: #ffffff;
   background-color: #1883ba;
-  border-radius: 12px;
+  border-radius: 20px;
   border: 2px solid #0016b0;
   margin: 20px; 
 }
@@ -150,11 +172,12 @@ table, th, td {
   
   max-width: 25rem;
   max-height: 35rem;
-  background-color:#1a759f;
+  background-color:#e8edf0;
   margin: 0% auto;
   border: 2px solid;
   margin-top: 0;
-  box-shadow: 7px 13px 37px #0016b0;
+  box-shadow: 7px 13px 37px #dadbe2;
+  border-radius: 15PX;
   
 }
 
@@ -171,10 +194,12 @@ margin-left: 32px;
  background:none;
  padding:3px;
  border-radius: 6px;
- color:#fff;
+ color:#000;
  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  font-size:20px;
  padding-left: 12px;
+ border-radius: 20px;
+ border: 2px solid #0016b0;
 }
 
 .botones2{
@@ -185,7 +210,7 @@ margin-left: 32px;
 }
 .botonGuardar:hover,.botonEditar:hover, .boton_personalizado3:hover{
 
-background-color: #b5179e;
+background-color: #b5179e
 
 }
 body{
@@ -201,4 +226,14 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] { -moz-appearance:textfield; }
 .formulario{
   margin-left: 25px;
+}
+
+.tablaUsuarios{
+  text-align: center;
+}
+
+#controlTabla{
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 0%;
 }
