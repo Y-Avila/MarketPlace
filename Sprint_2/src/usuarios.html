@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style10.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,9 +14,9 @@
     <title>Gestión De Usuarios</title>
   </head>
   <body>
-    <script type="text/javascript" src="/javascript/index.js"></script>
+    <script type="text/javascript" src="/javascript/usuarios.js"></script>
     <div class="contenedor">
-      <a href="/index.html"><img src="/img/icono.png" alt="icono"/></a>
+      <a href="/src/venta.html"><img src="/img/icono.png" alt="icono"/></a>
       <div class="centrado">Gestión de Usuarios</div>
     </div>
     <div class="modulo">
@@ -31,6 +31,7 @@
           <th>Telefono</th>
           <th>Email</th>
           <th>Rol</th>
+          <th>Editar</th>
           <th>Estado</th>
         </tr>
         <tr>
@@ -45,6 +46,7 @@
               <option value="1">Administrador</option>
             </select>
           </td>
+          <td><a id="btnEditar" class="botonEditar" type="submit" href="/src/actualizar.html" target="_black">Editar</a></td>
           <td id="estado">
             <div id="swEstado" class="switch-container">
               <input type="checkbox" id="switch" />
