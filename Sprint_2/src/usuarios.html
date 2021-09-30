@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Sprint_2/css/style10.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gestión De Usuarios</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="/Sprint_2/javascript/usuarios.js"></script>
+    <div class="contenedor">
+      <a href="/Sprint_2/src/venta.html"><img src="/Sprint_2/img/icono.png" alt="icono"/></a>
+      <div class="centrado">Gestión de Usuarios</div>
+    </div>
+    <div class="modulo">
+      <h3>Modulo de Administación</h3>
+    </div>
+    <div id="controlTabla">
+      <table class="tableUsuarios">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Editar</th>
+          <th>Estado</th>
+        </tr>
+        <tr>
+          <td id="txtID">1065000888</td>
+          <td id="nombre">Pepito</td>
+          <td id="apellido">Perez</td>
+          <td id="telefono">3005002040</td>
+          <td id="email">ejemplo@gmail.com</td>
+          <td id="rol">
+            <select id="rol">
+              <option value="0">Vendedor</option>
+              <option value="1">Administrador</option>
+            </select>
+          </td>
+          <td><a id="btnEditar" class="botonEditar" type="submit" href="/Sprint_2/src/actualizar.html" target="_black">Editar</a></td>
+          <td id="estado">
+            <div id="swEstado" class="switch-container">
+              <input type="checkbox" id="switch" />
+              <label for="switch" class="lbl"></label>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+      <a id="btnGuardar" class="botonGuardar" type="submit" href="#">guardar</a>
+    </div>
+    <br />
+  </body>
+</html>
