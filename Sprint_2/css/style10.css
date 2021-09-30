@@ -207,7 +207,7 @@ h1 {
     background-color: #b5179e;
   }
   body {
-    background-image: url("/img/fondo1.jpg");
+    background-image: url("/Sprint_2/img/fondo1.jpg");
   }
   
   input[type="number"]::-webkit-inner-spin-button,
