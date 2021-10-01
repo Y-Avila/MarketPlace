@@ -4,7 +4,7 @@ window.onload = iniciar;
  
   function iniciar() {
    
-    var btnGuardarActualizacion = document.getElementById("btnGuardarActualizacion");
+    var btnGuardar = document.getElementById("btnGuardarActualizacion");
     btnGuardarActualizacion.addEventListener("click", clickBtnGuardarActualizacion);
  
 }
