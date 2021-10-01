@@ -1,16 +1,18 @@
 window.onload = iniciar;
 
-function iniciar() {
-  
-    var btnGuardar = document.getElementById("btnGuardar");
-    btnGuardar.addEventListener("click", clickBtnGuardar);
 
+ 
+  function iniciar() {
+   
+    var btnGuardarActualizacion = document.getElementById("btnGuardarActualizacion");
+    btnGuardarActualizacion.addEventListener("click", clickBtnGuardarActualizacion);
+ 
 }
 
-function clickBtnGuardar() {
-  if (document.getElementById('switch').checked){
-  
-  alert("Registro Guardado")
- 
-  }
+  function clickBtnGuardarActualizacion(){
+    if(document.getElementById("inputForm")){
+      alert("se actualizo el registro")
+      
+    }
+    
 }
