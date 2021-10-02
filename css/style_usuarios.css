@@ -254,3 +254,7 @@ h1 {
     font-size: 3rem;
     color: #ffffff;
   }
+
+  html{
+    background-image: url(/img/fondo1.jpg);
+  }
