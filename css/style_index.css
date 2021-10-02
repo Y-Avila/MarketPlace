@@ -1,0 +1,39 @@
+.barranavegacion{
+
+    color: white;
+
+    background-color: #3a0ca3;
+    max-width: 100%;
+    max-height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 2px solid #0016b0;    
+}
+
+.contenedor {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin-left: 5%;
+  }
+
+
+  .centrado {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    font-family: kalam;
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+  }
+
+  img {
+    width: 7%;
+  }
+
+  .enlaceinterfaz{
+    margin-left: 20px;
+    padding: -50px 10px 60px 10px;
+  }
