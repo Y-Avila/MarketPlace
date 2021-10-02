@@ -8,8 +8,6 @@ function iniciar() {
 }
 
 function clickBtnGuardar() {
-  if (document.getElementById('switch').checked){
-  
-  alert("Registo Guardado")
-    }
+
+  alert("Registro Guardado")   
 }
