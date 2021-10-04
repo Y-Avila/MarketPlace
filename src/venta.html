@@ -4,30 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas</title>
+    <link rel="stylesheet" href="/css/style_productos.css">
+    <title>PPYLL</title>
 </head>
 <body>
-    <div class="login">
-        <h1>Registro Nuevo Producto</h1>
-        <link rel="stylesheet" type="text/css" href="/static/css/post.css" /> 
-        <link rel="stylesheet" type="text/css" href="/static/css/post.css" /> 
-        <section>
-        <form method="post" enctype="multipart/form-data" action="{{ url_for('registerProduct') }}">
-        <div class="grid grid-2">
-            <input type="text" name="np" placeholder="Id_Vendedor" required="required" />
-            <input type="text" name="dp" placeholder="Nombre del Producto" required="required" />
-            <input type="number" name="cp" placeholder="Cantidad del Producto" required="required" />
-            
-        </div>
-        <div class="grid grid-2">
-            <input type="number" name="cp" placeholder="Valor Unitario" required="required" />
-            <input type="number" name="cp" placeholder="Valor Total" required="required" />
-        </div> 
-            <button a id="btnGuardar" class="botonGuardar" type="submit" href="#">Guardar</button></a> 
-            
-        </form>
-        </section>
-        </div>
-        <script src="/javascript/actualizarventa.js"></script>    
+
+    <div class="contenedor">
+        <a href="/index.html">
+            <img src="/img/icono.png" alt="icono">        
+        </a>        
+    </div>   
+
+    <div class="modulo">
+        <h3>
+            Registrar un nuevo producto
+        </h3>
+    </div> 
+        
+    <input type="text" name="np" placeholder="GRUPO" required="required" />
+    <input type="text" name="dp" placeholder="NOMBRE DEL PRODUCTO" required="required" />
+    <input type="number" name="cp" placeholder="PRESENTACIÓN" required="required" />    
+    <input type="number" name="cp" placeholder="PRECIO" required="required" />
+    <input type="number" name="cp" placeholder="REFERENCIA" required="required" />
+    <input type="number" name="cp" placeholder="CODIGO DE BARRAS" required="required" />
+                
+    
+ 
+    <button a id="btnGuardar" class="botonGuardar" type="submit" href="#">
+        GUARDAR
+    </button></a> 
+    <a href="/src/Listadoproductos.html">
+        <button>IR A PRODUCTOS</button>
+    </a>
+ 
+    <script src="/javascript/actualizarventa.js"></script>    
 </body>
 </html>

@@ -3,5 +3,48 @@ border-collapse: collapse;}
 
 
 .busqueda{
-    margin-left: 520px;
+    margin-left: 690px;
 }
+
+
+.contenedor {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin-left: 5%;
+  }
+
+  .centrado {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    font-family: kalam;
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+  }
+
+  .modulo {
+    background-color: #3a0ca3;
+    max-width: 100%;
+    max-height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+  }
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-family: kalam;
+    text-align: right;
+    margin: 0%;
+    margin-right: 2rem;
+  }
+
+  img {
+    width: 7%;
+  }
+
+ 
