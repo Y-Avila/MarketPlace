@@ -84,13 +84,6 @@ h1 {
     text-align: center;
   }
   
-  caption {
-    color: #023e8a;
-    font-family: "calibri", serif;
-    font-size: 35px;
-    line-height: 65px;
-  }
-  
   th {
     color: white;
     background-color: #1a759f;
@@ -102,7 +95,15 @@ h1 {
   
   tr:nth-child(odd) {
     background-color: #fff;
+  } 
+  
+  caption {
+    color: #023e8a;
+    font-family: "calibri", serif;
+    font-size: 35px;
+    line-height: 65px;
   }
+
   #nombre {
     padding-left: 10px;
     padding-right: 10px;

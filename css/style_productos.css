@@ -1,9 +1,36 @@
-table,tr,td, th{border:1px solid black;
-border-collapse: collapse;}
+/* table,tr,td, th{border:1px solid black;
+border-collapse: collapse;} */
+
+
+
+table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: auto;
+  }
+  td {
+    text-align: center;
+  }
+  
+  th {
+    color: white;
+    background-color: #1a759f;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #d7ebf1;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #fff;
+  } 
 
 
 .busqueda{
-    margin-left: 690px;
+    margin-left: 390px;
 }
 
 html{
@@ -50,4 +77,7 @@ html{
     width: 7%;
   }
 
+  .lp{
+    margin-left: 23%;
+  }
  
