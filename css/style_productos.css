@@ -6,6 +6,9 @@ border-collapse: collapse;}
     margin-left: 690px;
 }
 
+html{
+  background-image: url(/img/fondo1.jpg);
+}
 
 .contenedor {
     position: relative;

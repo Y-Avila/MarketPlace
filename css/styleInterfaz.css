@@ -1,36 +1,52 @@
 body{
-    background-color: #ddcfd2;
-    font-family: Times New Roman;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #main-container{
     margin: 150px auto;
     width: 600px;
 }
+#tabla_interfaz{
+    margin-left: 3%;
+    margin-right: 3%;
+}
 
 table{
     background-color: white;
-    text-align: left;
+    text-align: center;
     border-collapse: collapse;
-    width: 100%
+    width: 100%;
+    color: black;
+    margin: auto;
+    
 }
 th, td{
      border: solid 1px black;
-     padding: 5px;
+     padding-left: 8px;
+     padding-right: 8px;
+     margin: auto;
 }
 
 thead{
-    background-color: #70c7b4;
+    background-color: #4CC9F0;
     border-bottom: solid 5px #0f362d
     color #fcfcfc;
 }
 
-tr:nth-child(even){
-    background-color: #ddd;
-}
 
-#asd{
-    box-align: right;    
+th {
+    color: white;
+    background-color: #1a759f;
+    font-size: 1.5rem;
+}
+  
+tr:nth-child(even) {
+    background-color: #d7ebf1;
+}
+  
+tr:nth-child(odd) {
+    background-color: #fff;
 }
 
 tr{
@@ -53,7 +69,7 @@ table td:nth-child(4) {
     width: 50px;
 }
 
-#main-cent{
+#btn_guardar{
     padding: top 50px;
     text-align: left;
 }
@@ -76,3 +92,61 @@ table td:nth-child(4) {
     background-color:#3b6d62 ;
 
 }
+.contenedor {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin-left: 5%;
+  }
+
+  .centrado {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    font-family: kalam;
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+  }
+
+  .modulo {
+    background-color: #3a0ca3;
+    max-width: 100%;
+    max-height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+  }
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-family: kalam;
+    text-align: right;
+    margin: 0%;
+    margin-right: 2rem;
+  }
+
+  img {
+    width: 7%;
+  }
+  html{
+    background-image: url(/img/fondo1.jpg);
+  }
+  
+  .my-form{
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  #iva, #total {
+    margin-left: 3%;
+    margin-right: 3%;
+    color: black;
+    text-align: right;
+  }
+
+  .interfaz_producto{
+      font-size: 1.5rem;
+  }
