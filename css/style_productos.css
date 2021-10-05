@@ -30,7 +30,7 @@ table,
 
 
 .busqueda{
-    margin-left: 390px;
+    margin-left: 630px;
 }
 
 html{
@@ -78,6 +78,10 @@ html{
   }
 
   .lp{
-    margin-left: 23%;
+    margin-left: 10%;
+    color: white;
+  }
+  .Camposnuevoproducto{
+    margin-left: 30px;
   }
  

@@ -28,8 +28,8 @@ table,
   td {
     border: 1px solid black;
     border-collapse: collapse;
-    padding: 5px;
-    margin: auto;
+    margin-left: 30px;
+    
   }
   td {
     text-align: center;
@@ -48,30 +48,26 @@ table,
     background-color: #fff;
   } 
 
-.fecha{
-    width:150px
-}
-
-.vendedor{
-    width:180px
-}
+  input{
+    width: 120px;
+  }
 
 .BuscadorFactura{
-    margin-left: 70px;
+    margin-left: 30px;
 }
 
 .BotonModificar{
-    margin-left: 70px;
+    margin-left: 30px;
+}
+
+.BotonGuardar{
+  margin-left: 30px;
 }
 
 buscador{
     display: inline;
+    
 }
-
-/* .botones{
-    display: inline;
-} */
-
 
 .contenedor {
     position: relative;
