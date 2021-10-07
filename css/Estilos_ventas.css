@@ -82,13 +82,16 @@ h3 {
 }
 
 /* fin de la base del menu */
+
 table,
   th,
   td {
     border: 1px solid black;
     border-collapse: collapse;
+
     padding: 5px;
     margin: auto;
+
   }
   td {
     text-align: center;
@@ -107,6 +110,7 @@ table,
     background-color: #fff;
   } 
 
+
 .fecha{
     width:150px
 }
@@ -121,9 +125,12 @@ table,
 
 .BotonModificar{
     margin-left: 70px;
+
 }
 
 buscador{
     display: inline;
+
 }
+
 

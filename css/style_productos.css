@@ -1,3 +1,4 @@
+
 /* base del menu */
 
 img {
@@ -164,6 +165,7 @@ h3 {
 
 /* fin de la base del menu */
 
+
 table,
   th,
   td {
@@ -191,6 +193,8 @@ table,
 
 
 .busqueda{
+
     margin-left: 390px;
 }
+
 
