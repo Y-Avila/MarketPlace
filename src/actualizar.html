@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/Sprint_2/css/style10.css">
+        <link rel="stylesheet" href="/css/style_usuarios.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
@@ -13,14 +13,31 @@
     </head>
 
     <body>
-        <div class="contenedor">
-            <a href="/Sprint_2/src/venta.html"><img src="/Sprint_2/img/icono.png" alt="icono"/></a>
-            <div class="centrado">Actualizacion de usuarios</div>
-        </div>    
-            <div class="modulo">
-                <h3>Modulo de Administación</h3>
-            </div>
-        <div class="container-formulario">
+         <!-- Side navigation -->
+  <div class="sidenav">
+    <div class="contenedor">
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
+    </div>
+
+    <a href="/src/usuarios.html">Usuarios</a>
+
+    <a href="/src/interfaz.html"> Facturación </a>
+
+    <a href="/src/ListadoVentas.html"> Ventas </a>
+
+    <a href="/src/Listadoproductos.html"> Productos </a>
+
+    <a href="/src/venta.html"> Registrar Producto </a>
+
+    <a href="/src/login.html"> Cerrar Sesion </a>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
+    <div class="modulo">
+      <h3>Actualizar Usuario</h3>
+    </div>
+    <div class="container-formulario">
             <form" id="formulario" onclick="re">
                 <div class="inputForm" id="inputForm">
                     <select class="inputAct" id="tipoId">
@@ -42,13 +59,17 @@
                         placeholder="Ingrese su contraseña" required><br><br>
                 </div>
                 <div class="botones2">
-                    <a class="botonGuardar" id="btnGuardarActualizacion" type="submit" href="/Sprint_2/src/usuarios.html">Guardar
+                    <a class="botonGuardar" id="btnGuardarActualizacion" type="submit" href="/src/usuarios.html">Guardar
                         Cambios</a>
                 </div>
             </form>
                 
         </div><br>
-        <script type="text/javascript" src="/Sprint_2/javascript/actualizar.js"></script>
+        <script type="text/javascript" src="/javascript/actualizar.js"></script>
+  </div>
+
+        
+        
     </body>
 
 </html>

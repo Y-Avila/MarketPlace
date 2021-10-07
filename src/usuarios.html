@@ -4,23 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Sprint_2/css/style10.css" />
+    <link rel="stylesheet" href="/css/style_usuarios.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap"
       rel="stylesheet"
     />
-    <title>Gestión De Usuarios</title>
+    <title>Usuarios</title>
   </head>
   <body>
-    <script type="text/javascript" src="/Sprint_2/javascript/usuarios.js"></script>
+    <script type="text/javascript" src="/javascript/usuarios.js"></script>
+     <!-- Side navigation -->
+  <div class="sidenav">
     <div class="contenedor">
-      <a href="/Sprint_2/src/venta.html"><img src="/Sprint_2/img/icono.png" alt="icono"/></a>
-      <div class="centrado">Gestión de Usuarios</div>
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
     </div>
+
+    <a href="/src/usuarios.html">Usuarios</a>
+
+    <a href="/src/interfaz.html"> Facturación </a>
+
+    <a href="/src/ListadoVentas.html"> Ventas </a>
+
+    <a href="/src/Listadoproductos.html"> Productos </a>
+
+    <a href="/src/venta.html"> Registrar Producto </a>
+
+    <a href="/src/login.html"> Cerrar Sesion </a>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
     <div class="modulo">
-      <h3>Modulo de Administación</h3>
+      <h3>Gestión de Usuarios</h3>
     </div>
     <div id="controlTabla">
       <table class="tableUsuarios">
@@ -46,7 +63,7 @@
               <option value="1">Administrador</option>
             </select>
           </td>
-          <td><a id="btnEditar" class="botonEditar" type="submit" href="/Sprint_2/src/actualizar.html" target="_black">Editar</a></td>
+          <td><a id="btnEditar" class="botonEditar" type="submit" href="/src/actualizar.html" target="_black">Editar</a></td>
           <td id="estado">
             <div id="swEstado" class="switch-container">
               <input type="checkbox" id="switch" />
@@ -58,6 +75,9 @@
       <br /><br />
       <a id="btnGuardar" class="botonGuardar" type="submit" href="#">guardar</a>
     </div>
+  </div>
+
+    
     <br />
   </body>
 </html>
