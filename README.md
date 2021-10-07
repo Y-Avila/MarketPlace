@@ -1,4 +1,4 @@
-# Repositorio de desarrollo para proyecto de MarketPlace
+# Repositorio de Master para proyecto de MarketPlace
 
 Este repositorio se alojará el trabajo colaborativo bajo el marco de SCRUM 
 
