@@ -13,14 +13,31 @@
 </head>
 <body>
 
-    <div class="contenedor">
-        <a href="/index.html">
-            <img src="/img/icono.png" alt="icono">        
-        </a>        
-    </div>   
 
+   <!-- Side navigation -->
+   <div class="sidenav">
+    <div class="contenedor">
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
+    </div>
+
+    <a href="/src/usuarios.html">Usuarios</a>
+
+    <a href="/src/interfaz.html"> Facturación </a>
+
+    <a href="/src/ListadoVentas.html"> Ventas </a>
+
+    <a href="/src/Listadoproductos.html"> Productos </a>
+
+    <a href="/src/venta.html"> Registrar Producto </a>
+
+    <a href="/src/login.html"> Cerrar Sesion </a>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
     <div class="modulo">
-        <h3>Interfaz de Ventas</h3>
+      <h3>Modulo de Administación</h3>
+
     </div>
     
     <form class="my-form">
@@ -39,7 +56,9 @@
             <input type="number" placeholder="Cantidad" required>
         </div>
         <br>
-        <div id="btn_guardar">
+
+        <div id="btn_guardar"></div>
+
             <button a id="btnGuardar" href="#" class= "btn btn-primary btn-block btn-large"><b>Guardar</b></button></a>
         </div>
     </form>
@@ -87,6 +106,10 @@
         <p><b>Total:</b></p>
         <input type="number" id="Total" class="caja">
     </div>
-    <script src="/javascript/actualizarinterfaz.js"></script>  
+
+    <script src="/javascript/actualizarinterfaz.js"></script>
+  </div>
+
+
 </body>
 </html>

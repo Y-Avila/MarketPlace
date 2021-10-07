@@ -6,25 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>PPYLL</title>
-    <link rel="stylesheet" href="/css/Estilos_ventas.css">
+
+    <link rel="stylesheet" href="/css/actualizar_informacion_venta.css">
+
 </head>
 <body>   
 
 
+    <!-- Side navigation -->
+  <div class="sidenav">
     <div class="contenedor">
-        <a href="/index.html"><img src="/img/icono.png" alt="icono"/></a>
-        
-        
-    </div>    
-    <div class="modulo">
-        <h3>Listado de Ventas</h3>
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
     </div>
 
-    <br></br>
-    
-    
+    <a href="/src/usuarios.html">Usuarios</a>
 
-    <buscador>
+    <a href="/src/interfaz.html"> Facturación </a>
+
+    <a href="/src/ListadoVentas.html"> Ventas </a>
+
+    <a href="/src/Listadoproductos.html"> Productos </a>
+
+    <a href="/src/venta.html"> Registrar Producto </a>
+
+    <a href="/src/login.html"> Cerrar Sesion </a>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
+    <div class="modulo">
+      <h3>Listado de Ventas</h3>
+    </div>
+     <br></br>
+    
+    <center>
+     <buscador>
+
         <input class="BuscadorFactura"  name="ID" size="50" placeholder="Buscar ">
         <select class="inputAct" id="tipoId">
             <option>Factura</option>
@@ -32,9 +49,14 @@
             <option>Nombre del cliente</option>
         </select><br><br>
         <br></br>
-    </buscador>
 
-         
+    </buscador>   
+    </center>
+
+    
+
+    <center>        
+
     <table>
         <tr >
           <th style=width:80px>Fecha</th>
@@ -146,14 +168,25 @@
         </tr>
         
       </table>
-       
 
-    <a href="/src/ActualizarInformacionVentas.html">
+    </center>    
+    <center>
+     <a href="/src/ActualizarInformacionVentas.html">
+
         <div class="Botones">
             <br></br>
             <button class='BotonModificar' style='font-size:20px'>Actualizar     </button>
         </div> 
-    </a>
+
+    </a>   
+    </center>
+
+    
+    
+  </div>
+
+
+
 
 </body>
 </html>

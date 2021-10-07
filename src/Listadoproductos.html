@@ -10,17 +10,34 @@
 <body>
 
 
+ <!-- Side navigation -->
+ <div class="sidenav">
     <div class="contenedor">
-        <a href="/index.html"><img src="/img/icono.png" alt="icono"/></a>
-        <div class="centrado"></div>
-    </div>    
-    <div class="modulo">
-        <h3>Listado de productos</h3>
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
     </div>
-    <br>
-    <br>
 
-    <center>
+    <a href="/src/usuarios.html">Usuarios</a>
+
+    <a href="/src/interfaz.html"> Facturación </a>
+
+    <a href="/src/ListadoVentas.html"> Ventas </a>
+
+    <a href="/src/Listadoproductos.html"> Productos </a>
+
+    <a href="/src/venta.html"> Registrar Producto </a>
+
+    <a href="/src/login.html"> Cerrar Sesion </a>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
+    <div class="modulo">
+      <h3>Modulo de Administación</h3>
+    </div>
+    <br><br>
+
+     <center>
+
     
     <table>
         <tr>
@@ -30,7 +47,9 @@
             <th style=width:120px>PRESENTACIÓN</th>
             <th style=width:80px>PRECIO</th>
             <TH style=width:120px>REFERENCIA</TH>
-            <TH style=width:180px>CÓDIGO DE BARRA</TH>
+
+            <TH style=width:150px>CÓDIGO DE BARRA</TH>
+
             
         </tr>
         <TR>
@@ -80,27 +99,25 @@
 </center>
 <br>
 <div class="lp">
-    <P>
-        No. Páginas 1 de 25 
-        <button> << Anterior</button>
-        <button> Siguiente >></button>
-        <input class="busqueda" type="text" placeholder="Buscar">
 
-    </P>
+<P>
+    No. Páginas 1 de 25 
+    <button> << Anterior</button>
+    <button> Siguiente >></button>
+    <input class="busqueda" type="text" placeholder="Buscar">
 
-    <div>
-        <a href="/src/edicionproducto.html">
-            <button>Editar producto</button>
-        </a>
-        
-        <a href="/src/venta.html">
-            <button>Registrar nuevo producto</button>
-        </a>
-    </div>
+</P>
+
+<div>
+    <a href="/src/edicionproducto.html">
+        <button>Editar producto</button>
+    </a>
+    
+    <a href="/src/venta.html">
+        <button>Registrar nuevo producto</button>
+    </a>
 </div>
-
-
-
+  </div>
 
 
 </body>
