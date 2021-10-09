@@ -10,24 +10,26 @@ import Registrar from "Pages/RegistrarProductos";
 import Login from "Pages/Login";
 import Index from "Pages/Index";
 import Ventas from "Pages/Ventas";
+import Facturar from "Pages/Facturar";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        {/*<Switch>
+        <Switch>
            <Route
             path={[
-              "/",
+             
               "/ventas",
-              "/usuarios",
               "/usuarios/actualizar",
+              "/usuarios",
               "/productos",
               "/productos/registrar",
               "/producto/editar",
-              "/login",
+              "/login", 
+              "/"
             ]} 
-          >*/}
+          >
         <Switch>
           <PrivateLayout>
             <Route path="/usuarios/actualizar">
@@ -37,7 +39,9 @@ function App() {
             <Route path="/usuarios">
               <Usuarios />
             </Route>
-
+            <Route path="/ventas/facturar">
+              <Facturar />
+            </Route>
             <Route path="/ventas">
               <Ventas />
             </Route>
@@ -64,8 +68,8 @@ function App() {
             </Route>
           </AuthLayout>
         </Switch>
-        {/* </Route>
-        </Switch> */}
+        </Route>
+        </Switch>
       </Router>
     </div>
   );
