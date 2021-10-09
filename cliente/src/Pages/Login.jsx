@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../Media/icono.png';
-import 'style/Estilo_Login.css';
+// import 'style/Estilo_Login.css';
 import google_logo from '../Media/google_logo.png';
 
 const Login= () => {
