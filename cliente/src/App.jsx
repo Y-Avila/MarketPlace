@@ -1,4 +1,3 @@
-import './App.css';
 import Usuarios from "Pages/Usuarios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateLayout from "layouts/PrivateLayout";
@@ -9,15 +8,28 @@ import Editar from "Pages/EditarProducto";
 import Registrar from "Pages/RegistrarProductos";
 import Login from "Pages/Login";
 import Index from "Pages/Index";
+import Ventas from "Pages/Ventas";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path={["/", "/usuarios", "/usuarios/actualizar","/productos", "/productos/registrar", "/producto/editar","/login"]}>
-          
-            <Route path={["/", "/usuarios", "/usuarios/actualizar"]}>
+          <Route
+            path={[
+            
+              "/usuarios",
+              "/usuarios/actualizar",
+              "/productos",
+              "/productos/registrar",
+              "/producto/editar",
+              "ventas",
+              "/login", 
+              "/"
+
+            ]}
+          >
+            <Route path={["/","/ventas", "/usuarios", "/usuarios/actualizar"]}>
               <PrivateLayout>
                 <Switch>
                   <Route path="/usuarios/actualizar">
@@ -25,6 +37,9 @@ function App() {
                   </Route>
                   <Route path="/usuarios">
                     <Usuarios />
+                  </Route>
+                  <Route path="/ventas">
+                    <Ventas />
                   </Route>
                   <Route path="/">
                     <Index />
@@ -50,6 +65,7 @@ function App() {
                 </Switch>
               </PrivateLayout>
             </Route>
+            
             <Route path={["/login"]}>
               <AuthLayout>
                 <Switch>
@@ -59,10 +75,9 @@ function App() {
                 </Switch>
               </AuthLayout>
             </Route>
-          
-        </Route>
+            
+          </Route>
         </Switch>
-        
       </Router>
     </div>
   );

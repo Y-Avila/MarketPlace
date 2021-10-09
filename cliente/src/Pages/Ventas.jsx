@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
 
@@ -43,19 +44,19 @@ const Ventas = () => {
           required="required"
         />
 
-        <a>
+        <Link>
           <button
             id="btnGuardar"
             className="botonGuardar"
             type="submit"
-            href="#"
+            to="#"
           >
             GUARDAR
           </button>
-        </a>
-        <a href="/src/Listadoproductos.html">
+        </Link>
+        <Link to="/Listadoproductos">
           <button>IR A PRODUCTOS</button>
-        </a>
+        </Link>
 
         <script src="/javascript/actualizarventa.js"></script>
       </div>
@@ -63,5 +64,5 @@ const Ventas = () => {
     )
 }
 
-export default Ventas
+export default Ventas;
 

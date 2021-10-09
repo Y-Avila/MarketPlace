@@ -8,13 +8,9 @@ const Index = () => {
         <div class="modulo">
           <h3>Modulo de Ventas</h3>
         </div>
-        {<br />}
-        <br />
-        <br />
-        <br />
-        <br />}
+        
         <center>
-          <p>Bienvenido al módulo de Venta del software PPYLL.</p>
+          <p className='bienvenidos'>Bienvenido al módulo de Venta del software PPYLL.</p>
           <br />
           <p>Donde podrás gestionar todos los procesos de tu Market Place...</p>
         </center>
