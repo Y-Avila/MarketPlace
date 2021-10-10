@@ -11,6 +11,7 @@ import Login from "Pages/Login";
 import Index from "Pages/Index";
 import Ventas from "Pages/Ventas";
 import Facturar from "Pages/Facturar";
+import NuevoUsuarios from "Pages/NuevoUsuarios";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
              
               "/ventas",
               "/usuarios/actualizar",
+              "/usuarios/crear",
               "/usuarios",
               "/productos",
               "/productos/registrar",
@@ -34,6 +36,9 @@ function App() {
           <PrivateLayout>
             <Route path="/usuarios/actualizar">
               <Actualizar />
+            </Route>
+            <Route path="/usuarios/crear">
+              <NuevoUsuarios />
             </Route>
 
             <Route path="/usuarios">
