@@ -1,88 +1,58 @@
-
-
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import 'style/styleUsuarios.css';
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-const usuariosBackend=[
-    {
-      id: 1065587424,
-      nombre:"luis carlos",
-      apellidos:"guerra gomez",
-      telefono : 3116162088,
-      email : "lcgg18@gmail.com",
-      rol : "administador",
-      estado : "activo"
-    },
-    {
-      id:1065888777,
-      nombre:"margareth elisa",
-      apellidos:"herrera viloria",
-      telefono : 3164440055,
-      email : "mehv@gmail.com",
-      rol : "vendedor",
-      estado : "activo"
-    },
-    {
-      id:1474787878,
-      nombre:"liz marianne",
-      apellidos:"guerra herrera",
-      telefono : 3205544123,
-      email : "lmgh@gmail.com",
-      rol : "administador",
-      estado : "inactivo"
-    },
-    {
-      id:1474787878,
-      nombre:"pablo",
-      apellidos:"guerra herrera",
-      telefono : 3205544123,
-      email : "lmgh@gmail.com",
-      rol : "administador",
-      estado : "inactivo"
-    },
-  ]
-
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import "style/styleUsuarios.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 const Usuarios = () => {
-  
-  const [usuarios, setUsuarios] = useState([])
-  
-  useEffect(() => {
-    setUsuarios(usuariosBackend);
-  }, [])
-  
+  const [usuarios, setUsuarios] = useState([]);
+  const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
+  useEffect(() => {
+    
+   
+    const options = { method: "GET", url: "http://localhost:5000/usuarios" };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setUsuarios(response.data)
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log('consulta', ejecutarConsulta);
+  //   if (ejecutarConsulta) {
+  //     (setUsuarios, setEjecutarConsulta);
+  //   }
+  // }, [ejecutarConsulta]);
 
   return (
-  
     <div>
-      <TablaUsuarios listaUsuarios={usuarios}/>
+      <TablaUsuarios
+        listaUsuarios={usuarios}
+        setEjecutarConsulta={setEjecutarConsulta}
+      />
     </div>
-  
-  )
-}
+  );
+};
 
-
-const TablaUsuarios = ({listaUsuarios}) => {
+const TablaUsuarios = ({ listaUsuarios }) => {
   useEffect(() => {
-    console.log("este el el estado", listaUsuarios)
-  }, [listaUsuarios])
-  
-  
+    console.log("este el el estado", listaUsuarios);
+  }, [listaUsuarios]);
+
   return (
     <div>
       <div class="main">
         <div class="modulo">
           <h3>Gestión de Usuarios</h3>
         </div>
-        <Link
-          class="botonCrear"
-          type="submit"
-          to="/usuarios/crear"
-        >
+        <Link class="botonCrear" type="submit" to="/usuarios/crear">
           Crear Nuevo Usuario
         </Link>
         <div id="controlTabla">
@@ -95,7 +65,9 @@ const TablaUsuarios = ({listaUsuarios}) => {
               <th>Email</th>
               <th>Rol</th>
               <th>Estado</th>
-              <th>Editar</th>
+              <th>Modificaciones</th>
+              
+
             </tr>
             {listaUsuarios.map((usuarios) => {
               return (
@@ -127,7 +99,16 @@ const TablaUsuarios = ({listaUsuarios}) => {
                     >
                       Editar
                     </Link>
+                    <Link
+                      id="btnEditar"
+                      class="botonEditar"
+                      type="submit"
+                      to="/usuarios/actualizar"
+                    >
+                      Eliminar
+                    </Link>
                   </td>
+                  
                 </tr>
               );
             })}
@@ -144,14 +125,10 @@ const TablaUsuarios = ({listaUsuarios}) => {
           </Link>
         </div>
       </div>
-      <ToastContainer position="bottom-center" autoClose={5000}/>     
+      <ToastContainer position="bottom-center" autoClose={5000} />
       <br />
     </div>
   );
-}
+};
 
-export default Usuarios
-
-    
-
-
+export default Usuarios;
