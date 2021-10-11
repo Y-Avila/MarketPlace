@@ -5,9 +5,13 @@ import "style/styleUsuarios.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { nanoid } from "nanoid";
+
+
+
 const Usuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
-  const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+  
 
   useEffect(() => {
     
@@ -24,26 +28,81 @@ const Usuarios = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   console.log('consulta', ejecutarConsulta);
-  //   if (ejecutarConsulta) {
-  //     (setUsuarios, setEjecutarConsulta);
-  //   }
-  // }, [ejecutarConsulta]);
-
+ 
   return (
     <div>
       <TablaUsuarios
         listaUsuarios={usuarios}
-        setEjecutarConsulta={setEjecutarConsulta}
+       
       />
     </div>
   );
 };
 
+const EditarUsuarios =({usuarios})=>{
+  const [edit, setEdit] = useState(false);
+  return(
+    <tr >className="inputTabla"
+      {edit?(                   
+      <>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.id} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.nombre} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.apellidos} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.telefono} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.email} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.rol} /></td>
+      <td><input className="inputTabla"type="text" defaultValue={usuarios.estado} /></td>
+      </>
+  ):( 
+    
+   <>
+    <td id="txtID">{usuarios.id}</td>
+    <td id="nombre">{usuarios.nombre}</td>
+    <td id="apellido">{usuarios.apellidos}</td>
+    <td id="telefono">{usuarios.telefono}</td>
+    <td id="email">{usuarios.email}</td>
+    <td id="rol">
+      <select id="rol" defaultValue={usuarios.rol}>
+        <option >vendedor</option>
+        <option >Administrador</option>
+      </select>
+    </td>
+    <td id="estado">
+      {/* <div id="swEstado" class="switch-container">
+    <input type="checkbox" id="switch" />
+    <label for="switch" class="lbl"></label>
+  </div> */}
+      {usuarios.estado}
+    </td>
+    </>
+  )
+  }  
+  <>
+    <td>
+      <div className="modificaciones">
+        {edit ? (
+        <i onClick={()=>setEdit(!edit)} className="fas fa-check"/>
+        ):(
+        <i onClick={()=>setEdit(!edit)} className="far fa-edit"/>
+        )}
+      
+      <i className="far fa-trash-alt"/>
+      </div>
+    </td>
+    </>
+  
+  
+
+  </tr>
+  )
+  }
+
+
+
+
 const TablaUsuarios = ({ listaUsuarios }) => {
   useEffect(() => {
-    console.log("este el el estado", listaUsuarios);
+    
   }, [listaUsuarios]);
 
   return (
@@ -71,45 +130,8 @@ const TablaUsuarios = ({ listaUsuarios }) => {
             </tr>
             {listaUsuarios.map((usuarios) => {
               return (
-                <tr>
-                  <td id="txtID">{usuarios.id}</td>
-                  <td id="nombre">{usuarios.nombre}</td>
-                  <td id="apellido">{usuarios.apellidos}</td>
-                  <td id="telefono">{usuarios.telefono}</td>
-                  <td id="email">{usuarios.email}</td>
-                  <td id="rol">
-                    <select id="rol">
-                      <option value="0">{usuarios.rol}</option>
-                      <option value="1">Administrador</option>
-                    </select>
-                  </td>
-                  <td id="estado">
-                    {/* <div id="swEstado" class="switch-container">
-                  <input type="checkbox" id="switch" />
-                  <label for="switch" class="lbl"></label>
-                </div> */}
-                    {usuarios.estado}
-                  </td>
-                  <td>
-                    <Link
-                      id="btnEditar"
-                      class="botonEditar"
-                      type="submit"
-                      to="/usuarios/actualizar"
-                    >
-                      Editar
-                    </Link>
-                    <Link
-                      id="btnEditar"
-                      class="botonEditar"
-                      type="submit"
-                      to="/usuarios/actualizar"
-                    >
-                      Eliminar
-                    </Link>
-                  </td>
-                  
-                </tr>
+                <EditarUsuarios key={nanoid()} usuarios={usuarios}/>
+               
               );
             })}
           </table>

@@ -5,6 +5,13 @@ import '../style/Sidebar.css';
 
 
 const Sidebar = () => {
+//  const location =useLocation();
+
+// useEffect(() => {
+ 
+//   console.log(location);
+
+// }, [location]) 
   return (
     <>
       <div className="sidenav">
@@ -27,5 +34,7 @@ const Sidebar = () => {
     
   );
 };
+
+
 
 export default Sidebar;
