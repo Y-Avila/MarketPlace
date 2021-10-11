@@ -18,9 +18,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-           <Route
+          <Route
             path={[
-             
               "/ventas",
               "/usuarios/actualizar",
               "/usuarios/crear",
@@ -28,52 +27,57 @@ function App() {
               "/productos",
               "/productos/registrar",
               "/producto/editar",
-              "/login", 
+              "/login",
               "/"
-            ]} 
+            ]}
           >
-        <Switch>
-          <PrivateLayout>
-            <Route path="/usuarios/actualizar">
-              <Actualizar />
-            </Route>
-            <Route path="/usuarios/crear">
-              <NuevoUsuarios />
-            </Route>
+            <Switch>
+              <PrivateLayout>
+                <Route path="/usuarios/actualizar">
+                  <Actualizar />
+                </Route>
+                <Route path="/usuarios/crear">
+                  <NuevoUsuarios />
+                </Route>
 
-            <Route path="/usuarios">
-              <Usuarios />
-            </Route>
-            <Route path="/ventas/facturar">
-              <Facturar />
-            </Route>
-            <Route path="/ventas">
-              <Ventas />
-            </Route>
+                <Route exact path="/usuarios">
+                  <Usuarios />
+                </Route>
+                <Route exact path="/ventas/facturar">
+                  <Facturar />
+                </Route>
+                <Route exact path="/ventas">
+                  <Ventas />
+                </Route>
 
-            <Route path="/producto/editar">
-              <Editar />
-            </Route>
+                <Route exact path="/producto/editar">
+                  <Editar />
+                </Route>
 
-            <Route path="/productos/registrar">
-              <Registrar />
-            </Route>
+                <Route exact path="/productos/registrar">
+                  <Registrar />
+                </Route>
 
-            <Route path="/productos">
-              <Producto />
-            </Route>
-            <Route path="/index">
-              <Index />
-            </Route>
-          </PrivateLayout>
-
-          <AuthLayout>
-            <Route path="/login">
-              <Login />
-            </Route>
-          </AuthLayout>
-        </Switch>
-        </Route>
+                <Route exact path="/productos">
+                  <Producto />
+                </Route>
+                <Route exact path="/">
+                  <Index />
+                </Route>
+              </PrivateLayout>
+            </Switch>
+          </Route>
+          <Route path={[
+             "/login"
+            ]}>
+            <Switch>
+              <AuthLayout>
+                <Route path="/login">
+                  <Login />
+                </Route>
+              </AuthLayout>
+            </Switch>
+          </Route>
         </Switch>
       </Router>
     </div>

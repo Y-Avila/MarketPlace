@@ -16,7 +16,7 @@ const Sidebar = () => {
     <>
       <div className="sidenav">
           <div className="contenedor">
-            <Link to="/index"> <Logo/> </Link>
+            <Link to="/"> <Logo/> </Link>
           </div>
           <Link to="/usuarios">Usuarios</Link>
 

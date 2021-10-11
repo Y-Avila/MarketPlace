@@ -56,7 +56,10 @@ const NuevoUsuarios = () => {
                 onChange={(e) => {
                   setTipoID(e.target.value);
                 }}
+                defaultValue={0} 
+                required
               >
+                <option disabled value={0}>Seleccionar tipo de documento</option>
                 <option>Cedula de Ciudadania</option>
                 <option>Cedula de Extranjeria</option>
                 <option>Pasaporte </option>
