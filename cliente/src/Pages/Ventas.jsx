@@ -54,7 +54,7 @@ const Ventas = () => {
             GUARDAR
           </button>
         </Link>
-        <Link to="/Listadoproductos">
+        <Link to="/Listado/productos">
           <button>IR A PRODUCTOS</button>
         </Link>
 

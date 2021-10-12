@@ -20,6 +20,7 @@ function App() {
         <Switch>
           <Route
             path={[
+              "ventas/facturar",
               "/ventas",
               "/usuarios/actualizar",
               "/usuarios/crear",

@@ -221,7 +221,7 @@ const EditarUsuarios = ({ usuarios }) => {
           </div>
           <Dialog open={openDialog}>
             <div className="eliminarUsuario">
-              <h1 className="eliminarUsuarioH1" >¿Está seguro de querer eliminar el vehículo?</h1>
+              <h1 className="eliminarUsuarioH1" >¿Está seguro de querer eliminar el Usuario?</h1>
               <div className="eliminarUsuarioBotones">
                 <button className="eliminarUsuarioBtnSi" onClick={() => eliminarUsuario()}>Sí</button>
                 <button className="eliminarUsuarioBtnNo" onClick={() => setOpenDialog(false)}>No</button>
