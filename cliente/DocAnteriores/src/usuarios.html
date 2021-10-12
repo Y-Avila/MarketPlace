@@ -1,12 +1,25 @@
-import React from 'react'
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style_usuarios.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-function Usuarios() {
-
-    return (
-        <>
-            <div className="sidenav">
-    <div className="contenedor">
-      <a href="/index.html"><img src="/src/Media/icono.png" alt="icono" /></a>
+    <title>Usuarios</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="/javascript/usuarios.js"></script>
+     <!-- Side navigation -->
+  <div class="sidenav">
+    <div class="contenedor">
+      <a href="/index.html"><img src="/img/icono.png" alt="icono" /></a>
     </div>
 
     <a href="/src/usuarios.html">Usuarios</a>
@@ -22,14 +35,14 @@ function Usuarios() {
     <a href="/src/login.html"> Cerrar Sesion </a>
   </div>
 
-  
-  <div className="main">
-    <div className="modulo">
+  <!-- Page content -->
+  <div class="main">
+    <div class="modulo">
       <h3>Gestión de Usuarios</h3>
 
     </div>
     <div id="controlTabla">
-      <table className="tableUsuarios">
+      <table class="tableUsuarios">
         <tr>
           <th>ID</th>
           <th>Nombre</th>
@@ -52,17 +65,17 @@ function Usuarios() {
               <option value="1">Administrador</option>
             </select>
           </td>
-          <td><a id="btnEditar" className="botonEditar" type="submit" href="/src/actualizar.html" target="_black">Editar</a></td>
+          <td><a id="btnEditar" class="botonEditar" type="submit" href="/src/actualizar.html" target="_black">Editar</a></td>
           <td id="estado">
-            <div id="swEstado" className="switch-container">
+            <div id="swEstado" class="switch-container">
               <input type="checkbox" id="switch" />
-              <label for="switch" className="lbl"></label>
+              <label for="switch" class="lbl"></label>
             </div>
           </td>
         </tr>
       </table>
       <br /><br />
-      <a id="btnGuardar" className="botonGuardar" type="submit" href="#">guardar</a>
+      <a id="btnGuardar" class="botonGuardar" type="submit" href="#">guardar</a>
     </div>
 
   </div>
@@ -70,10 +83,5 @@ function Usuarios() {
     
 
     <br />
-  </>
- 
-        
-    )
-}
-
-export default Usuarios
+  </body>
+</html>

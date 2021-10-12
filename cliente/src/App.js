@@ -2,7 +2,7 @@
 // import './App.css';
 // import Usuarios from 'Pages/Usuarios';
 // import './style/style_usuarios.css';
-import './style/styleVenta.css';
+import './style/style_Ventas.css';
 import Ventas from 'Pages/Ventas';
 
 
