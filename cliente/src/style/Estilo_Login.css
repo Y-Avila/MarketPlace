@@ -1,20 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-.imgLogo{
-    width: 70%;
+.imgLogin{
+    /* width: 70%;
     height: 45%;
     position: absolute;
     top: 8%;
     left: 65%;
-    margin: -150px 0 0 -150px;}
+    margin: -150px 0 0 -150px;
+  } */width: 30%;
+}
 
-body {
+.bodyLogin {
 
   color: white;
   width: 100%;
   height: 100%;
   font-family: "Open Sans", sans-serif;
-  background: #B5179E;
+  background: black;
   background: 
   
     -moz-radial-gradient(100%   0%,ellipse cover,#4CC9F0 1%, rgba(138, 114, 76, 0) 40% ),
@@ -70,6 +72,7 @@ body {
 }
 
 .btnLogin{
-  padding: 1rem;
+  width: 15rem;
+  height: 5rem;
   
 }

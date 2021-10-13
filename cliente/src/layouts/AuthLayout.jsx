@@ -1,14 +1,12 @@
-
-
-import React from 'react';
-
+// import LoginCom from "components/LoginCom";
+import React from "react";
 
 const AuthLayout = ({ children }) => {
   return (
-    <div>
-     <div>
+    <div className="bodyLogin">
+      
         {children}
-      </div>
+      
     </div>
   );
 };

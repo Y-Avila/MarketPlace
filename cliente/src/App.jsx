@@ -1,17 +1,18 @@
-import "./App.css";
-import Usuarios from "Pages/Usuarios";
+
+import Usuarios from "Pages/Admin/Usuarios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateLayout from "layouts/PrivateLayout";
 import AuthLayout from "layouts/AuthLayout";
-import Actualizar from "Pages/ActualizarUsuarios";
-import Producto from "Pages/Producto";
-import Editar from "Pages/EditarProducto";
-import Registrar from "Pages/RegistrarProductos";
-import Login from "Pages/Login";
-import Index from "Pages/Index";
-import Ventas from "Pages/Ventas";
-import Facturar from "Pages/Facturar";
-import NuevoUsuarios from "Pages/NuevoUsuarios";
+import Producto from "Pages/Admin/Producto";
+import Editar from "Pages/Admin/EditarProducto";
+import Registrar from "Pages/Admin/RegistrarProductos";
+import Login from "Pages/Auth/Login";
+import Index from "Pages/Admin/Index";
+import Ventas from "Pages/Admin/Ventas";
+import Facturar from "Pages/Admin/Facturar";
+import NuevoUsuarios from "Pages/Admin/NuevoUsuarios";
+
+
 
 function App() {
   return (
@@ -20,60 +21,55 @@ function App() {
         <Switch>
           <Route
             path={[
-              "ventas/facturar",
-              "/ventas",
-              "/usuarios/actualizar",
-              "/usuarios/crear",
-              "/usuarios",
-              "/productos",
-              "/productos/registrar",
-              "/producto/editar",
-              "/login",
-              "/"
+              "/admin/ventas/facturar",
+              "/admin/ventas",
+              "/admin/usuarios/crear",
+              "/admin/usuarios",
+              "/admin/productos",
+              "/admin/productos/registrar",
+              "/admin/producto/editar",
+              "/admin/",
             ]}
           >
             <Switch>
-              <PrivateLayout>
-                <Route path="/usuarios/actualizar">
-                  <Actualizar />
-                </Route>
-                <Route path="/usuarios/crear">
+             <PrivateLayout> 
+                
+                <Route path="/admin/usuarios/crear">
                   <NuevoUsuarios />
                 </Route>
 
-                <Route exact path="/usuarios">
+                <Route exact path="/admin/usuarios">
                   <Usuarios />
                 </Route>
-                <Route exact path="/ventas/facturar">
+                <Route exact path="/admin/ventas/facturar">
                   <Facturar />
                 </Route>
-                <Route exact path="/ventas">
+                <Route exact path="/admin/ventas">
                   <Ventas />
                 </Route>
 
-                <Route exact path="/producto/editar">
+                <Route exact path="/admin/producto/editar">
                   <Editar />
                 </Route>
 
-                <Route exact path="/productos/registrar">
+                <Route exact path="/admin/productos/registrar">
                   <Registrar />
                 </Route>
 
-                <Route exact path="/productos">
+                <Route exact path="/admin/productos">
                   <Producto />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/admin/">
                   <Index />
                 </Route>
               </PrivateLayout>
             </Switch>
           </Route>
-          <Route path={[
-             "/login"
-            ]}>
+
+          <Route  path={["/login"]}>
             <Switch>
               <AuthLayout>
-                <Route path="/login">
+                <Route exact path="/login">
                   <Login />
                 </Route>
               </AuthLayout>
