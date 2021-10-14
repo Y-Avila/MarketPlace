@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import 'style/style_ventas.css';
+import 'style/styleVenta.css';
 
 const VentasEditar = () => {
     return (
