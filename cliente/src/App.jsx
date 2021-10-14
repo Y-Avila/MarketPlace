@@ -37,7 +37,6 @@ function App() {
                 <Route path="/admin/usuarios/crear">
                   <NuevoUsuarios />
                 </Route>
-
                 <Route exact path="/admin/usuarios">
                   <Usuarios />
                 </Route>
@@ -47,15 +46,12 @@ function App() {
                 <Route exact path="/admin/ventas">
                   <Ventas />
                 </Route>
-
                 <Route exact path="/admin/producto/editar">
                   <Editar />
                 </Route>
-
                 <Route exact path="/admin/productos/registrar">
                   <Registrar />
                 </Route>
-
                 <Route exact path="/admin/productos">
                   <Producto />
                 </Route>

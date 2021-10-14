@@ -28,9 +28,9 @@ const Usuarios = () => {
 
 
   return (
-    <div>
+    <>
       <TablaUsuarios listaUsuarios={usuarios} />
-    </div>
+    </>
   );
 };
 

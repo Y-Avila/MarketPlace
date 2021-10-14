@@ -49,7 +49,7 @@
       border: 1px solid black;
       border-collapse: collapse;
       padding: 0.7rem;
-      margin: auto;
+      height: 100%;
       
     }
     td {
@@ -186,7 +186,7 @@
     }
 
     tbody input, tbody select{
-      width: 10rem;
+      width: auto;
       background: none;
       padding: 3px;
       border-radius: 6px;
@@ -225,7 +225,7 @@
     
     .tablaUsuarios input select {
       text-align: center;
-      width: 12rem;
+      width: auto;
       background: none;
       padding: 3px;
       border-radius: 6px;
@@ -240,8 +240,8 @@
     }
     
     #controlTabla {
-      margin: auto;
-      margin-top: 2%;
+     
+      margin-top: 5%;
       margin-bottom: 0%;
     }
     
