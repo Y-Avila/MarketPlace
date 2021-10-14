@@ -3,13 +3,16 @@ import Usuarios from "Pages/Admin/Usuarios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateLayout from "layouts/PrivateLayout";
 import AuthLayout from "layouts/AuthLayout";
-import Producto from "Pages/Admin/Producto";
-import Editar from "Pages/Admin/EditarProducto";
-import Registrar from "Pages/Admin/RegistrarProductos";
+import Productos from "Pages/Admin/Productos";
+import ProductosEditar from "Pages/Admin/ProductosEditar";
+import ProductosRegistrar from "Pages/Admin/ProductosRegistrar";
 import Login from "Pages/Auth/Login";
 import Index from "Pages/Admin/Index";
+
 import Ventas from "Pages/Admin/Ventas";
-import Facturar from "Pages/Admin/Facturar";
+import VentasRegistrar from "Pages/Admin/VentasRegistrar";
+import VentasEditar from "Pages/Admin/VentasEditar";
+
 import NuevoUsuarios from "Pages/Admin/NuevoUsuarios";
 
 
@@ -27,7 +30,7 @@ function App() {
               "/admin/usuarios",
               "/admin/productos",
               "/admin/productos/registrar",
-              "/admin/producto/editar",
+              "/admin/productos/editar",
               "/admin/",
             ]}
           >
@@ -41,23 +44,26 @@ function App() {
                 <Route exact path="/admin/usuarios">
                   <Usuarios />
                 </Route>
-                <Route exact path="/admin/ventas/facturar">
-                  <Facturar />
+                <Route exact path="/admin/ventas/Registrar">
+                  <VentasRegistrar />
                 </Route>
                 <Route exact path="/admin/ventas">
                   <Ventas />
                 </Route>
+                <Route exact path="/admin/ventas/Editar">
+                  <VentasEditar />
+                </Route>
 
-                <Route exact path="/admin/producto/editar">
-                  <Editar />
+                <Route exact path="/admin/productos/editar">
+                  <ProductosEditar />
                 </Route>
 
                 <Route exact path="/admin/productos/registrar">
-                  <Registrar />
+                  <ProductosRegistrar />
                 </Route>
 
                 <Route exact path="/admin/productos">
-                  <Producto />
+                  <Productos />
                 </Route>
                 <Route exact path="/admin/">
                   <Index />
@@ -66,10 +72,10 @@ function App() {
             </Switch>
           </Route>
 
-          <Route  path={["/login"]}>
+          <Route  path={["/"]}>
             <Switch>
               <AuthLayout>
-                <Route exact path="/login">
+                <Route exact path="/">
                   <Login />
                 </Route>
               </AuthLayout>

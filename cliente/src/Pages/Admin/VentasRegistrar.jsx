@@ -1,16 +1,17 @@
 import React from 'react';
+import 'style/styleVenta.css';
 
-const Facturar = () => {
+const VentasRegistrar = () => {
     return (
         <div>
-           <div class="main">
-                <div class="modulo">
+           <div className="main">
+                <div className="modulo">
                 <h3>Modulo de Administación</h3>
                 </div>
     
-                <form class="my-form">
-                    <b class="interfaz_producto">Producto</b><br/><br/>
-                    <div class="container">
+                <form className="my-form">
+                    <b className="interfaz_producto">Producto</b><br/><br/>
+                    <div className="container">
                         <select>
                             <option select disable>Seleccione</option>
                             <option value="1-L">Laptop</option>
@@ -19,13 +20,13 @@ const Facturar = () => {
                             <option value="4-U">USB</option>   
                         </select>
                     </div> <br/>
-                    <div class="grid grid-2">
+                    <div className="grid grid-2">
                         <input type="number" placeholder="Precio" required />
                         <input type="number" placeholder="Cantidad" required/>
                     </div>
                     <div id="btn_guardar"></div>
 
-            <button a id="btnGuardar" href="#" class= "btn btn-primary btn-block btn-large"><b>Guardar</b></button>
+            <button a id="btnGuardar" href="#" className= "btn btn-primary btn-block btn-large"><b>Guardar</b></button>
         </form>
         </div>
         <br/><br/>
@@ -64,14 +65,14 @@ const Facturar = () => {
     </div>
     <div id="iva"> 
         <p><b>IVA:</b></p>
-        <input type="number" id="IVA" class="caja"/>
+        <input type="number" id="IVA" className="caja"/>
     </div> <br/>
     <div id="total"> 
         <p><b>Total:</b></p>
-        <input type="number" id="Total" class="caja"/>
+        <input type="number" id="Total" className="caja"/>
     </div>
-    </div>
+        </div>
     )
 }
 
-export default Facturar;
+export default VentasRegistrar;
