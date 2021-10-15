@@ -1,10 +1,10 @@
 import React from "react";
-import 'style/index.css';
+import '../../style/index.css';
 
 const Index = () => {
   return (
-    <div>
-      <div class="main">
+    <>
+      <div class="main-index">
         <div class="modulo">
           <h3>Modulo de Ventas</h3>
         </div>
@@ -15,7 +15,7 @@ const Index = () => {
           <p>Donde podrás gestionar todos los procesos de tu Market Place...</p>
         </center>
       </div>
-    </div>
+    </>
   );
 };
 

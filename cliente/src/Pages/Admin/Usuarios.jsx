@@ -9,6 +9,7 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 
 const Usuarios = () => {
+
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ const Usuarios = () => {
         console.error(error);
       });
   }, []);
+
+
 
   return (
     <div>
@@ -54,6 +57,7 @@ const EditarUsuarios = ({ usuarios }) => {
       data: {
         ...newUsuario,
       },
+      
     };
 
     await axios
@@ -62,11 +66,15 @@ const EditarUsuarios = ({ usuarios }) => {
         console.log(response.data);
         toast.success("Usuario modificado con éxito");
         setEdit(false);
+        
+        
       })
       .catch(function (error) {
         toast.error("Error modificando el usuario");
         console.error(error);
+       
       });
+    setNewUsuario(); 
   };
 
   const eliminarUsuario = async () => {
@@ -92,7 +100,7 @@ const EditarUsuarios = ({ usuarios }) => {
         toast.error("Error eliminado el usuario");
         console.error(error);
       });
-      setOpenDialog(true);
+    setOpenDialog(false);
   };
 
   return (
@@ -151,21 +159,41 @@ const EditarUsuarios = ({ usuarios }) => {
               onChange={(e) =>
                 setNewUsuario({ ...newUsuario, rol: e.target.value })
               }
+              defaultValue=""
+              required
             >
-              <option>vendedor</option>
+              <option disabled Value="">
+                Seleccione el Rol
+              </option>
+              <option>Vendedor</option>
               <option>Administrador</option>
             </select>
           </td>
           <td>
-            <input
-              type="checkbox"
-              key={nanoid()}
+            <select
+              id="rol"
               value={newUsuario.estado}
               onChange={(e) =>
                 setNewUsuario({ ...newUsuario, estado: e.target.value })
               }
-            />
+              defaultValue=""
+              required
+            >
+              <option disabled Value="">
+                Seleccione el estado
+              </option>
+              <option>inactivo</option>
+              <option>Activo</option>
+            </select>
           </td>
+          {/* <td>
+            <input
+              type="checkbox"
+              onChange={(e) =>
+                setNewUsuario({ ...newUsuario, estado: e.target.checked })
+              }
+            />
+          </td> */}
         </>
       ) : (
         <>
@@ -175,17 +203,19 @@ const EditarUsuarios = ({ usuarios }) => {
           <td id="telefono">{usuarios.telefono}</td>
           <td id="email">{usuarios.email}</td>
           <td id="rol">
-            <select id="rol" defaultValue={usuarios.rol}>
+            {usuarios.rol}
+            {/* <select id="rol" defaultValue={usuarios.rol}>
+              <option>Elige el rol</option>
               <option>vendedor</option>
               <option>Administrador</option>
-            </select>
+            </select> */}
           </td>
           <td id="estado">
-
-            <div id="swEstado" class="switch-container">
+            {usuarios.estado}
+            {/* <div id="swEstado" className="switch-container">
               <input type="checkbox" id="switch" />
-              <label for="switch" class="lbl"></label>
-            </div>
+              <label for="switch" htmlFor="checkbox" className="lbl"></label>
+            </div> */}
           </td>
         </>
       )}
@@ -194,37 +224,50 @@ const EditarUsuarios = ({ usuarios }) => {
           <div className="modificaciones">
             {edit ? (
               <>
-                <Tooltip title='Confirmar Actualización' arrow>
+                <Tooltip title="Confirmar Actualización" arrow>
                   <i
                     onClick={() => actualizarUsuario()}
                     className="fas fa-check"
+                    to='/admin/usuarios'
                   />
                 </Tooltip>
-                <Tooltip title='Cancelar Actualización' arrow>
+                <Tooltip title="Cancelar Actualización" arrow>
                   <i onClick={() => setEdit(!edit)} className="fas fa-ban" />
                 </Tooltip>
-
-                
               </>
             ) : (
               <>
-              <Tooltip title='Actualizar Usuario' arrow>
-                 <i onClick={() => setEdit(!edit)} className="far fa-edit" />
-              </Tooltip>
-              <Tooltip title='Eliminar Usuario' arrow>
-                <i onClick={() => setOpenDialog(true)} eliminarUsuario className="far fa-trash-alt" />
-              </Tooltip>
-
-                
+                <Tooltip title="Actualizar Usuario" arrow>
+                  <i onClick={() => setEdit(!edit)} className="far fa-edit" />
+                </Tooltip>
+                <Tooltip title="Eliminar Usuario" arrow>
+                  <i
+                    onClick={() => setOpenDialog(true)}
+                    eliminarUsuario
+                    className="far fa-trash-alt"
+                  />
+                </Tooltip>
               </>
             )}
           </div>
           <Dialog open={openDialog}>
             <div className="eliminarUsuario">
-              <h1 className="eliminarUsuarioH1" >¿Está seguro de querer eliminar el Usuario?</h1>
+              <h1 className="eliminarUsuarioH1">
+                ¿Está seguro de querer eliminar el Usuario?
+              </h1>
               <div className="eliminarUsuarioBotones">
-                <button className="eliminarUsuarioBtnSi" onClick={() => eliminarUsuario()}>Sí</button>
-                <button className="eliminarUsuarioBtnNo" onClick={() => setOpenDialog(false)}>No</button>
+                <button
+                  className="eliminarUsuarioBtnSi"
+                  onClick={() => eliminarUsuario()}
+                >
+                  Sí
+                </button>
+                <button
+                  className="eliminarUsuarioBtnNo"
+                  onClick={() => setOpenDialog(false)}
+                >
+                  No
+                </button>
               </div>
             </div>
           </Dialog>
@@ -238,35 +281,34 @@ const TablaUsuarios = ({ listaUsuarios }) => {
   useEffect(() => {}, [listaUsuarios]);
 
   return (
-    <div>
-      <div class="main">
-        <div class="modulo">
-          <h3>Gestión de Usuarios</h3>
-        </div>
-        <Link class="botonCrear" type="submit" to="/usuarios/crear">
-          Crear Nuevo Usuario
-        </Link>
-        <div id="controlTabla">
-          <table class="tableUsuarios">
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Telefono</th>
-              <th>Email</th>
-              <th>Rol</th>
-              <th>Estado</th>
-              <th>Modificaciones</th>
-            </tr>
-            {listaUsuarios.map((usuarios) => {
-              return <EditarUsuarios key={nanoid()} usuarios={usuarios} />;
-            })}
-          </table>
-        </div>
+    <>
+      <div class="modulo">
+        <h3>Gestión de Usuarios</h3>
       </div>
+      <Link class="botonCrear" type="submit" to="/admin/usuarios/crear">
+        Crear Nuevo Usuario
+      </Link>
+      <div id="controlTabla">
+        <table class="tableUsuarios">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Modificaciones</th>
+          </tr>
+          {listaUsuarios.map((usuarios) => {
+            return <EditarUsuarios key={nanoid()} usuarios={usuarios} />;
+          })}
+        </table>
+      </div>
+
       <ToastContainer position="bottom-center" autoClose={5000} />
       <br />
-    </div>
+    </>
   );
 };
 

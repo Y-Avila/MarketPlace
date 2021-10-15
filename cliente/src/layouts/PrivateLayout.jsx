@@ -1,17 +1,16 @@
-import React from 'react';
-import Sidebar from 'components/Sidebar';
-
+import React from "react";
+import Sidebar from "components/Sidebar";
 
 const PrivateLayout = ({ children }) => {
   return (
-    <div >
-      <div>
+    <>
+      <div className="espacioSidebar">
+        <div className="sidebarMain">
           <Sidebar />
-        <main >
-          {children}
-        </main>
+          <main className="mainSidebar">{children}</main>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

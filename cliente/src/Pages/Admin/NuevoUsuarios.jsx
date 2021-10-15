@@ -124,7 +124,7 @@ const NuevoUsuarios = () => {
             </div>
             <div className="botones2">
               <Link
-                to="/usuarios"
+                to="/admin/usuarios"
                 className="botonGuardar"
                 id="btnGuardarActualizacion"
                 onClick={() => {

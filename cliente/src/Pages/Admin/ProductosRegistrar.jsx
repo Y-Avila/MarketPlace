@@ -1,14 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import 'style/style_productos.css';
 
-
-
-
-const Ventas = () => {
+const Registrar = () => {
     return (
-        
-     <div>
-      <div className="main">
+        <div>
+            <div className="main">
         <div className="modulo">
           <h3>Modulo de Administación</h3>
         </div>
@@ -44,7 +41,7 @@ const Ventas = () => {
           required="required"
         />
 
-        <Link>
+        
           <button
             id="btnGuardar"
             className="botonGuardar"
@@ -53,16 +50,16 @@ const Ventas = () => {
           >
             GUARDAR
           </button>
-        </Link>
-        <Link to="/Listado/productos">
+      
+
+        <Link to="/admin/productos">
           <button>IR A PRODUCTOS</button>
         </Link>
 
-        <script src="/javascript/actualizarventa.js"></script>
+        
       </div>
-    </div>   
+        </div>
     )
 }
 
-export default Ventas;
-
+export default Registrar

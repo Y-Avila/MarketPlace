@@ -1,17 +1,21 @@
-import "./App.css";
-import Usuarios from "Pages/Usuarios";
+
+import Usuarios from "Pages/Admin/Usuarios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateLayout from "layouts/PrivateLayout";
 import AuthLayout from "layouts/AuthLayout";
-import Actualizar from "Pages/ActualizarUsuarios";
-import Producto from "Pages/Producto";
-import Editar from "Pages/EditarProducto";
-import Registrar from "Pages/RegistrarProductos";
-import Login from "Pages/Login";
-import Index from "Pages/Index";
-import Ventas from "Pages/Ventas";
-import Facturar from "Pages/Facturar";
-import NuevoUsuarios from "Pages/NuevoUsuarios";
+import Productos from "Pages/Admin/Productos";
+import ProductosEditar from "Pages/Admin/ProductosEditar";
+import ProductosRegistrar from "Pages/Admin/ProductosRegistrar";
+import Login from "Pages/Auth/Login";
+import Index from "Pages/Admin/Index";
+
+import Ventas from "Pages/Admin/Ventas";
+import VentasRegistrar from "Pages/Admin/VentasRegistrar";
+import VentasEditar from "Pages/Admin/VentasEditar";
+
+import NuevoUsuarios from "Pages/Admin/NuevoUsuarios";
+
+
 
 function App() {
   return (
@@ -20,60 +24,58 @@ function App() {
         <Switch>
           <Route
             path={[
-              "ventas/facturar",
-              "/ventas",
-              "/usuarios/actualizar",
-              "/usuarios/crear",
-              "/usuarios",
-              "/productos",
-              "/productos/registrar",
-              "/producto/editar",
-              "/login",
-              "/"
+              "/admin/ventas/facturar",
+              "/admin/ventas",
+              "/admin/usuarios/crear",
+              "/admin/usuarios",
+              "/admin/productos",
+              "/admin/productos/registrar",
+              "/admin/productos/editar",
+              "/admin/",
             ]}
           >
             <Switch>
-              <PrivateLayout>
-                <Route path="/usuarios/actualizar">
-                  <Actualizar />
-                </Route>
-                <Route path="/usuarios/crear">
+             <PrivateLayout> 
+                
+                <Route path="/admin/usuarios/crear">
                   <NuevoUsuarios />
                 </Route>
 
-                <Route exact path="/usuarios">
+                <Route exact path="/admin/usuarios">
                   <Usuarios />
                 </Route>
-                <Route exact path="/ventas/facturar">
-                  <Facturar />
+                <Route exact path="/admin/ventas/Registrar">
+                  <VentasRegistrar />
                 </Route>
-                <Route exact path="/ventas">
+                <Route exact path="/admin/ventas">
                   <Ventas />
                 </Route>
-
-                <Route exact path="/producto/editar">
-                  <Editar />
+                <Route exact path="/admin/ventas/Editar">
+                  <VentasEditar />
                 </Route>
 
-                <Route exact path="/productos/registrar">
-                  <Registrar />
+                <Route exact path="/admin/productos/editar">
+                  <ProductosEditar />
                 </Route>
 
-                <Route exact path="/productos">
-                  <Producto />
+                <Route exact path="/admin/productos/registrar">
+                  <ProductosRegistrar />
                 </Route>
-                <Route exact path="/">
+
+                <Route exact path="/admin/productos">
+                  <Productos />
+                </Route>
+                <Route exact path="/admin/">
                   <Index />
                 </Route>
               </PrivateLayout>
             </Switch>
           </Route>
-          <Route path={[
-             "/login"
-            ]}>
+
+          <Route  path={["/"]}>
             <Switch>
               <AuthLayout>
-                <Route path="/login">
+                <Route exact path="/">
                   <Login />
                 </Route>
               </AuthLayout>
