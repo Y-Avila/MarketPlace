@@ -49,16 +49,15 @@ const Ventas = () => {
             id="btnGuardar"
             className="botonGuardar"
             type="submit"
-            to="#"
+            to="/admin/ventas"
           >
             GUARDAR
           </button>
         </Link>
-        <Link to="/Listado/productos">
+        <Link to="/admin/productos">
           <button>IR A PRODUCTOS</button>
         </Link>
 
-        <script src="/javascript/actualizarventa.js"></script>
       </div>
     </div>   
     )
