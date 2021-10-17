@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect, useState } from 'react';
 import '../../style/Estilo_Login.css';
@@ -38,6 +37,8 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [imageUrl, setImageUrl] = useState();
 
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
   const onSuccess = (googleUser) => {
     
     
@@ -46,7 +47,11 @@ const Login = () => {
     setName(profile.getName());
     setEmail(profile.getEmail());
     setImageUrl(profile.getImageUrl());
-    
+    const id_token = googleUser.getAuthResponse().id_token;
+    console.log(id_token);
+    console.log(name);
+    console.log(email);
+    console.log(imageUrl);
   };
 
   const onFailure = () => {

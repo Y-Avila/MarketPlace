@@ -8,8 +8,6 @@ import '../style/Sidebar.css';
 
 const Sidebar = () => {
  
-  
-
   return (
     <>
       <div className="sidenav">
@@ -26,7 +24,7 @@ const Sidebar = () => {
 
           <Link to="/admin/productos/registro"> Registrar Producto </Link>
 
-          <Link to="/login">Cerrar Sesion </Link> 
+          <Link to="/login"> Cerrar Sesion </Link> 
       
       </div>
       

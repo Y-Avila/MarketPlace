@@ -3,45 +3,10 @@
       color: #ffffff;
     }
     
-    .lbl {
-      display: inline-block;
-      width: 50px;
-      height: 30px;
-      background: #979797;
-      border-radius: 100px;
-      cursor: pointer;
-      position: relative;
-      transition: 0.2s;
-    }
-    
-    .lbl::after {
-      content: "";
-      display: block;
-      width: 21px;
-      height: 21px;
-      background: #eee;
-      border-radius: 100px;
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      transition: 0.2s;
-    }
-    
-    #switch:checked + .lbl::after {
-      left: 25px;
-    }
-    
-    #switch:checked + .lbl {
-      background: rgb(51, 100, 233);
-    }
-    
-    /* #switch {
-      display: none;
-    } */
-    
     table{
       width: 100%;
       display: flexbox;
+      height: 80%;
     }
     table,
     th,
@@ -49,7 +14,7 @@
       border: 1px solid black;
       border-collapse: collapse;
       padding: 0.7rem;
-      height: 100%;
+      /* height: 100%; */
       
     }
     td {
@@ -77,38 +42,38 @@
     }
   
     #nombre {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #identificacion {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #apellido {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #telefono {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #email {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #rol {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     #estado {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     .botonGuardar {
@@ -186,19 +151,7 @@
       
     }
 
-    tbody input, tbody select{
-      width: auto;
-      background: none;
-      padding: 3px;
-      border-radius: 6px;
-      color: #000;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-      font-size: 20px;
-      padding-left: 12px;
-      border-radius: 20px;
-      border: 2px solid #0016b0;
-      margin-top: 6%;
-    }
+   
     .botones2 {
       text-align: center;
       padding-left: 15px;
@@ -224,27 +177,21 @@
       margin-left: 25px;
     }
     
-    .tablaUsuarios input select {
-      text-align: center;
-      width: auto;
-      background: none;
-      padding: 3px;
-      border-radius: 6px;
-      color: #000;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-      font-size: 20px;
-      padding-left: 12px;
-      border-radius: 20px;
-      border: 2px solid #0016b0;
-      margin-top: 6%;
-
-    }
-    
-    #controlTabla {
      
+    
+    .controlTabla {
+     display: flex;
+
       margin-top: 2%;
       margin-bottom: 0%;
+
     }
+
+    .tableUsuarios{
+      display: flexbox;
+      justify-content: center;
+    }
+
     
     .fa-edit{
       margin-right: 2rem;

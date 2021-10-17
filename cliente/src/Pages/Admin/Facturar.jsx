@@ -23,7 +23,7 @@ const Facturar = () => {
               <option value="3-T">Televisor</option>
               <option value="4-U">USB</option>
             </select>
-          </div>{" "}
+          </div>
           <br />
           <div className="grid grid-2">
             <input type="number" placeholder="Precio" required />
