@@ -52,6 +52,7 @@ const NuevoUsuarios = () => {
                 }}
                 size="50"
                 placeholder="Ingrese su nombre"
+                minlength="3" 
                 required
               />
               <input
