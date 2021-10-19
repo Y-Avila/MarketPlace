@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
+const base_url="https://prueba-3333333.herokuapp.com/";
+
 const NuevoUsuarios = () => {
   const [nombre, setNombre] = useState();
   const [apellidos, setApellidos] = useState();
@@ -13,7 +15,7 @@ const NuevoUsuarios = () => {
   const enviarDatos = async () => {
     const options = {
       method: "POST",
-      url: "http://localhost:5000/usuarios",
+      url: `${base_url}usuarios`,
       headers: { "Content-Type": "application/json" },
       data: {
         nombre: nombre,

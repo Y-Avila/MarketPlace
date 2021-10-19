@@ -8,13 +8,16 @@ import { Dialog, Tooltip } from "@material-ui/core";
 import axios from "axios";
 import { nanoid } from "nanoid";
 
+
+const base_url="https://prueba-3333333.herokuapp.com/";
+
 const Usuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
     const obtenerUsuarios = async () => {
-      const options = { method: "GET", url: "http://localhost:5000/usuarios" };
+      const options = { method: "GET", url:  `${base_url}usuarios` };
 
       await axios
         .request(options)
@@ -56,7 +59,7 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta }) => {
   const actualizarUsuario = async () => {
     const options = {
       method: "PATCH",
-      url: `http://localhost:5000/usuarios/${usuarios._id}`,
+      url: `${base_url}usuarios/${usuarios._id}`,
       headers: { "Content-Type": "application/json" },
       data: {
         ...newUsuario,
@@ -80,13 +83,13 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta }) => {
   const eliminarUsuario = async () => {
     const options = {
       method: "DELETE",
-      url: `http://localhost:5000/usuarios/${usuarios._id}`,
+      url: `${base_url}usuarios/${usuarios._id}`,
       headers: { "Content-Type": "application/json" },
       data: {
         id: usuarios._id,
       },
     };
-
+    
     await axios
       .request(options)
       .then(function (response) {
@@ -217,6 +220,7 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta }) => {
                 <button
                   className="eliminarUsuarioBtnSi"
                   onClick={() => eliminarUsuario()}
+                  setEjecutarConsulta={setEjecutarConsulta}
                 >
                   Sí
                 </button>
