@@ -1,0 +1,313 @@
+
+    h1{
+      color: #ffffff;
+    }
+    
+    .lbl {
+      display: inline-block;
+      width: 50px;
+      height: 30px;
+      background: #979797;
+      border-radius: 100px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.2s;
+    }
+    
+    .lbl::after {
+      content: "";
+      display: block;
+      width: 21px;
+      height: 21px;
+      background: #eee;
+      border-radius: 100px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      transition: 0.2s;
+    }
+    
+    #switch:checked + .lbl::after {
+      left: 25px;
+    }
+    
+    #switch:checked + .lbl {
+      background: rgb(51, 100, 233);
+    }
+    
+    /* #switch {
+      display: none;
+    } */
+    
+    table{
+      width: 100%;
+      display: flexbox;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 0.7rem;
+      margin: auto;
+      
+    }
+    td {
+      text-align: center;
+    }
+    
+    th {
+      color: white;
+      background-color: #1a759f;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #d7ebf1;
+    }
+    
+    tr:nth-child(odd) {
+      background-color: #fff;
+    } 
+    
+    caption {
+      color: #023e8a;
+      font-family: "calibri", serif;
+      font-size: 35px;
+      line-height: 65px;
+    }
+  
+    #nombre {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #identificacion {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #apellido {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #telefono {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #email {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #rol {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    #estado {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .botonGuardar {
+      text-decoration: none;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 20px;
+      color: #080808;
+      background-color: #d5d8db;
+      border-radius: 6px;
+      border: 2px solid #0016b0;
+      margin: 0%;
+    }
+    #btnGuardar {
+      margin: 48%;
+    }
+    
+    .botonEditar {
+      text-decoration: none;
+      padding: 7px;
+      font-weight: 600;
+      font-size: 15px;
+      color: #ffffff;
+      background-color: #1883ba;
+      border-radius: 20px;
+      border: 2px solid #0016b0;
+      margin: 30px;
+    }
+
+    .botonCrear{
+      text-decoration: none;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 20px;
+      color: #080808;
+      background-color: #d5d8db;
+      border-radius: 6px;
+      border: 2px solid #0016b0;
+      margin: 0%;
+    }
+    
+    .container-formulario {
+      max-width: 25rem;
+      max-height: 35rem;
+      background-color: #e8edf0;
+      margin: 0% auto;
+      border: 2px solid;
+      margin-top: 0;
+      box-shadow: 7px 13px 37px #dadbe2;
+      border-radius: 15px;
+    }
+    
+    .inputForm {
+      font-family: "Calibri";
+      margin: 1.75rem;
+      text-align: left;
+      margin-left: 32px;
+    }
+
+    
+    
+    form input, form select{
+      width: 20rem;
+      background: none;
+      padding: 3px;
+      border-radius: 6px;
+      color: #000;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: 20px;
+      padding-left: 12px;
+      border-radius: 20px;
+      border: 2px solid #0016b0;
+      margin-top: 6%;
+      
+    }
+
+    tbody input, tbody select{
+      width: 10rem;
+      background: none;
+      padding: 3px;
+      border-radius: 6px;
+      color: #000;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: 20px;
+      padding-left: 12px;
+      border-radius: 20px;
+      border: 2px solid #0016b0;
+      margin-top: 6%;
+    }
+    .botones2 {
+      text-align: center;
+      padding-left: 15px;
+      margin-bottom: 25px;
+    }
+    .botonGuardar:hover,
+    .botonEditar:hover,
+    .boton_personalizado3:hover,
+    .botonCrear:hover {
+      background-color: #b5179e;
+    }
+  
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+    .formulario {
+      margin-left: 25px;
+    }
+    
+    .tablaUsuarios input select {
+      text-align: center;
+      width: 12rem;
+      background: none;
+      padding: 3px;
+      border-radius: 6px;
+      color: #000;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: 20px;
+      padding-left: 12px;
+      border-radius: 20px;
+      border: 2px solid #0016b0;
+      margin-top: 6%;
+
+    }
+    
+    #controlTabla {
+      margin: auto;
+      margin-top: 2%;
+      margin-bottom: 0%;
+    }
+    
+    .fa-edit{
+      margin-right: 2rem;
+    }
+  
+    .fa-check{
+      margin-right: 2rem; 
+    }
+   
+  
+    .contenedor {
+      position: relative;
+      display: inline-block;
+      text-align: left;
+      margin-left: 5%;
+    }
+    .eliminarUsuario{
+      display: flex;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .eliminarUsuarioH1{
+      text-align: center;
+      color: black;
+    }
+
+    .eliminarUsuarioBotones{
+     display: flex;
+     width: 100%;
+     align-items: center;
+     justify-content: center;
+     padding-top: 1rem;
+     padding-bottom: 1rem; 
+    }
+
+    .eliminarUsuarioBtnSi{
+     font-size:1.5rem ;
+     margin-left: 2rem;
+      margin-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: rgb(91, 245, 158);
+
+    }
+
+    .eliminarUsuarioBtnNo{
+      font-size:1.5rem ;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: rgb(243, 75, 75);
+
+    }
+    
+    .eliminarUsuarioBtnSi:hover{
+      background-color: rgb(36, 170, 94);
+    }
+
+    .eliminarUsuarioBtnNo:hover{
+      background-color: rgb(236, 38, 38);
+    }
