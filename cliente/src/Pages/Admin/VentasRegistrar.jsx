@@ -1,77 +1,155 @@
 import React from 'react';
 import 'style/styleVenta.css';
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Ventas from "Pages/Admin/Ventas";
 
 const VentasRegistrar = () => {
+
+    const [productos, setProductos] = useState([])
+    const [id_vendedor, setId_vendedor] = useState([])
+    const [codigo, setCodigo] = useState([])
+    const [productoventa, setproductoventa] = useState([])    
+    const [cantidad, setCantidad] = useState([])
+    const [precio, setPrecio] = useState([])
+    const [total, setTotal] = useState([])
+
+    const getProductos = async () => {
+
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:5000/productos'
+        };
+
+        await axios
+            .request(options)
+            .then(function (response) {
+                setProductos(response.data);
+            }).catch(function (error) {
+                console.error(error);
+            });
+    }
+
+    useEffect(() => {
+        getProductos();
+    }, []); 
+    
+    
+    const enviarDatos = async() => {
+
+        const options = {
+         method: "POST",
+         url: "http://localhost:5000/ventas",
+         headers: { "Content-Type": "application/json" },
+         data: {
+            codigo:codigo,
+            id_vendedor:id_vendedor,
+            producto:productoventa,
+            cantidad:cantidad,
+            precio:precio,
+            total:total
+         },
+       };   
+       return(
+            <Ventas/>
+        )         
+    }
+
     return (
         <div>
            <div className="main">
                 <div className="modulo">
-                <h3>Modulo de Administación</h3>
+                    <h3>Modulo de Administación</h3>
                 </div>
     
-                <form className="my-form">
-                    <b className="interfaz_producto">Producto</b><br/><br/>
-                    <div className="container">
-                        <select>
-                            <option select disable>Seleccione</option>
-                            <option value="1-L">Laptop</option>
-                            <option value="2-C">Camara</option>
-                            <option value="3-T">Televisor</option>
-                            <option value="4-U">USB</option>   
-                        </select>
-                    </div> <br/>
-                    <div className="grid grid-2">
-                        <input type="number" placeholder="Precio" required />
-                        <input type="number" placeholder="Cantidad" required/>
-                    </div>
-                    <div id="btn_guardar"></div>
+                <form>
+                    <div className="contenedorformularioventa">
 
-            <button a id="btnGuardar" href="#" className= "btn btn-primary btn-block btn-large"><b>Guardar</b></button>
-        </form>
+                        <input 
+                            value={codigo}
+                            onChange={(e) => {
+                                setCodigo(e.target.value);
+                                }}
+                            placeholder="Codigo de Venta" 
+                            required 
+                        />
+
+                        <input 
+                            value={id_vendedor}
+                            onChange={(e) => {
+                                setId_vendedor(e.target.value);
+                                }}
+                            placeholder="id_vendedor" 
+                            required 
+                        />
+
+                        <select
+                            value={productoventa}
+                            onChange={(e) => {
+                            setproductoventa(e.target.value);
+                            }}
+                            defaultValue={0} 
+                            required
+                            > 
+                            <option value={0}>Seleccionar un producto</option>  
+
+                            {
+                            productos.map((productos, key) => (
+                                <option key={productos._id}>
+                                    {productos.descripcion}
+                                </option>
+                            ))
+                            } 
+                        </select>
+
+                        <input
+                            disabled 
+                            placeholder="Presentacion"                            
+                        />
+
+                        <input 
+                            value={cantidad}
+                            onChange={(e) => {
+                                setCantidad(e.target.value);
+                                }}
+                            placeholder="Cantidad" 
+                            required
+                        />
+                        <input 
+                            value={precio}
+                            onChange={(e) => {
+                                setPrecio(e.target.value);
+                                }}
+                            placeholder="Precio" 
+                            required
+                        />
+
+                        <input 
+                            value={total}
+                            onChange={(e) => {
+                                setTotal(e.target.value);
+                                }}
+                            disabled 
+                            placeholder="Total" 
+                            required
+                        />  
+
+                                                        
+                        <button type="submit" className="Botonguardarventa"
+                            
+                            onClick={() => {
+                                enviarDatos();
+                            }}> 
+                                Guardar
+                        </button>  
+                        
+                        
+                    </div>
+                </form>
         </div>
-        <br/><br/>
-        <div id="tabla_interfaz">
-        <table>
-            <thead>
-                <tr>
-                    <th>Producto</th> <th>Precio</th> <th>Cantidad</th><th>SubTotal</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </thead>
-        </table>
     </div>
-    <div id="iva"> 
-        <p><b>IVA:</b></p>
-        <input type="number" id="IVA" className="caja"/>
-    </div> <br/>
-    <div id="total"> 
-        <p><b>Total:</b></p>
-        <input type="number" id="Total" className="caja"/>
-    </div>
-        </div>
     )
 }
 

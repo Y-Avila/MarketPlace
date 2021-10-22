@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
-
-
-
 .imgLogo{
     width: 70%;
     height: 45%;
@@ -12,8 +9,6 @@
     left: 65%;
     margin: -150px 0 0 -150px; 
 }
-
-  
 
 
 .btn-block {
@@ -33,6 +28,22 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.contenedorformularioventa{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.Botonguardarventa{
+  margin: 30px;
+  background-color: rgb(13, 26, 104);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
 }
 
 
