@@ -8,13 +8,13 @@ import Ventas from "Pages/Admin/Ventas";
 
 const VentasRegistrar = () => {
 
-    const [productos, setProductos] = useState([""])
-    const [id_vendedor, setId_vendedor] = useState([""])
-    const [codigo, setCodigo] = useState([""])
-    const [productoventa, setproductoventa] = useState([""])    
-    const [cantidad, setCantidad] = useState([""])
-    const [precio, setPrecio] = useState([""])
-    const [total, setTotal] = useState([""])
+    const [productos, setProductos] = useState([])
+    const [id_vendedor, setId_vendedor] = useState([])
+    const [codigo, setCodigo] = useState([])
+    const [productoventa, setproductoventa] = useState([])    
+    const [cantidad, setCantidad] = useState([])
+    const [precio, setPrecio] = useState([])
+    const [total, setTotal] = useState(["$ 0.00"])
 
     const getProductos = async () => {
 
@@ -35,6 +35,11 @@ const VentasRegistrar = () => {
     useEffect(() => {
         getProductos();
     }, []); 
+
+    useEffect(() => {
+        setTotal(cantidad*precio);
+    }, [cantidad, precio]); 
+
     
     
     const enviarDatos = async() => {
@@ -69,11 +74,12 @@ const VentasRegistrar = () => {
                     <h3>Modulo de Administación</h3>
                 </div>
     
-                <form>
+                <form >
                     <div className="contenedorformularioventa">
 
                         <input 
                             value={codigo}
+                            type="number"
                             onChange={(e) => {
                                 setCodigo(e.target.value);
                                 }}
@@ -83,6 +89,7 @@ const VentasRegistrar = () => {
 
                         <input 
                             value={id_vendedor}
+                            type="number"
                             onChange={(e) => {
                                 setId_vendedor(e.target.value);
                                 }}
@@ -116,6 +123,9 @@ const VentasRegistrar = () => {
 
                         <input 
                             value={cantidad}
+                            type="number"
+                            min="0"
+                            max="20"
                             onChange={(e) => {
                                 setCantidad(e.target.value);
                                 }}
@@ -124,22 +134,28 @@ const VentasRegistrar = () => {
                         />
                         <input 
                             value={precio}
+                            type="number"
                             onChange={(e) => {
                                 setPrecio(e.target.value);
                                 }}
                             placeholder="Precio" 
                             required
                         />
-
+                        
+                        
                         <input 
                             value={total}
                             onChange={(e) => {
                                 setTotal(e.target.value);
                                 }}
+                            disabled
+                            placeholder={`$${total}` } 
                             
-                            placeholder="Total" 
-                            required
-                        />  
+                        /> 
+                        <label>                        
+                        Total Venta
+                        </label> 
+                        
 
                                                         
                         <button type="submit" className="Botonguardarventa"
