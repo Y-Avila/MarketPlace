@@ -1,8 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import 'style/styleVenta.css';
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Ventas = () => {
+
+  const [ventas, setVentas] = useState([]);
+
+  const getVentas = async () => {
+
+      const options = {
+          method: 'GET',
+          url: 'http://localhost:5000/ventas'
+      };
+
+      await axios
+          .request(options)
+          .then(function (response) {
+              setVentas(response.data);
+          }).catch(function (error) {
+              console.error(error);
+          });
+  }
+
+  useEffect(() => {
+      getVentas();
+  }, []);
+
     return (
         
      <div>
@@ -36,113 +62,26 @@ const Ventas = () => {
 
             <table>
               <tr >
-                <th >Fecha</th>
-                <th >Factura</th>
-                <th >Valor Total</th>
-                <th >Metodo de Pago</th>
-                <th >Vendedor</th>
-                <th >ID_Vendedor</th>
-                <th >Cliente</th>
-                <th >ID_Cliente</th>
-                <th >MetodoEntrega</th>
-                <th >LugarEntrega</th>          
+                <th >Codigo</th>
+                <th >id_vendedor</th>
+                <th >producto</th>
+                <th >cantidad</th>
+                <th >precio</th>
+                <th >total</th>                         
               </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td>2131234</td>
-                  <td>Germany</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td>123456578</td>
-                  <td>Mexico</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td>234236665</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td>645737683</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-              <tr>
-                  <td>23/07/2021</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
+                              
+                {
+                  ventas.map((ventas, key) => (
+                      <tr key={ventas._id}>
+                          <td>{ventas.codigo}</td>
+                          <td>{ventas.id_vendedor}</td>
+                          <td>{ventas.producto}</td>
+                          <td>{ventas.cantidad}</td>
+                          <td>{ventas.precio}</td>
+                          <td>{ventas.total}</td>
+                      </tr>
+                  ))
+                }             
               
             </table>
 
