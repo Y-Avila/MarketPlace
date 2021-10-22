@@ -4,6 +4,8 @@ import 'style/styleVenta.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { Dialog, Tooltip } from "@material-ui/core";
+import VentasEditar from './VentasEditar';
 
 const Ventas = () => {
 
@@ -24,6 +26,25 @@ const Ventas = () => {
               console.error(error);
           });
   }
+
+
+  const eliminarVenta = async () => {
+
+    const options = {
+      method: "DELETE",
+      url: `http://localhost:5000/ventas/${ventas._id}`,
+      headers: { "Content-Type": "application/json" },
+      data: {
+        id: ventas._id,
+      },
+    };
+
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+  };
 
   useEffect(() => {
       getVentas();
@@ -67,7 +88,8 @@ const Ventas = () => {
                 <th >producto</th>
                 <th >cantidad</th>
                 <th >precio</th>
-                <th >total</th>                         
+                <th >total</th>
+                <th >Modificaciones</th>                          
               </tr>
                               
                 {
@@ -79,6 +101,23 @@ const Ventas = () => {
                           <td>{ventas.cantidad}</td>
                           <td>{ventas.precio}</td>
                           <td>{ventas.total}</td>
+                          <td>
+                            
+                            <Tooltip title="Editar Venta" arrow>
+                            <i
+                              className="fas fa-edit"
+                              to='/admin/usuarios'
+                            />
+                          </Tooltip>
+                          
+                          <Tooltip title="Eliminar Venta" arrow>
+                            <i
+                              onClick={() => eliminarVenta()}
+                              className="fas fa-trash-alt"
+                              to='/admin/usuarios'
+                            />
+                          </Tooltip>
+                          </td>
                       </tr>
                   ))
                 }             
