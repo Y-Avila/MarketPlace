@@ -8,13 +8,13 @@ import Ventas from "Pages/Admin/Ventas";
 
 const VentasRegistrar = () => {
 
-    const [productos, setProductos] = useState([])
-    const [id_vendedor, setId_vendedor] = useState([])
-    const [codigo, setCodigo] = useState([])
-    const [productoventa, setproductoventa] = useState([])    
-    const [cantidad, setCantidad] = useState([])
-    const [precio, setPrecio] = useState([])
-    const [total, setTotal] = useState([])
+    const [productos, setProductos] = useState([""])
+    const [id_vendedor, setId_vendedor] = useState([""])
+    const [codigo, setCodigo] = useState([""])
+    const [productoventa, setproductoventa] = useState([""])    
+    const [cantidad, setCantidad] = useState([""])
+    const [precio, setPrecio] = useState([""])
+    const [total, setTotal] = useState([""])
 
     const getProductos = async () => {
 
@@ -52,10 +52,15 @@ const VentasRegistrar = () => {
             total:total
          },
        };   
-       return(
-            <Ventas/>
-        )         
-    }
+               
+    
+       axios.request(options).then(function (response) {
+        console.log(response.data);
+      }).catch(function (error) {
+        console.error(error);
+      });
+    
+    };
 
     return (
         <div>
@@ -131,7 +136,7 @@ const VentasRegistrar = () => {
                             onChange={(e) => {
                                 setTotal(e.target.value);
                                 }}
-                            disabled 
+                            
                             placeholder="Total" 
                             required
                         />  
