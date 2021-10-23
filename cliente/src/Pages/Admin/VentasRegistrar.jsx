@@ -4,17 +4,19 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Ventas from "Pages/Admin/Ventas";
+import Ventas from "Pages/Admin/Ventas.jsx";
 
 const VentasRegistrar = () => {
 
     const [productos, setProductos] = useState([])
-    const [id_vendedor, setId_vendedor] = useState([])
-    const [codigo, setCodigo] = useState([])
-    const [productoventa, setproductoventa] = useState([])    
-    const [cantidad, setCantidad] = useState([])
-    const [precio, setPrecio] = useState([])
-    const [total, setTotal] = useState(["$ 0.00"])
+    const [usuarios, setUsuarios] = useState([])
+    const [consecutivo,setCosecutivo] = useState([])
+    const [id_vendedor, setId_vendedor] = useState()
+    const [codigo, setCodigo] = useState()
+    const [productoventa, setproductoventa] = useState()    
+    const [cantidad, setCantidad] = useState()
+    const [precio, setPrecio] = useState()
+    const [total, setTotal] = useState("$ 0.00")
 
     const getProductos = async () => {
 
@@ -32,8 +34,42 @@ const VentasRegistrar = () => {
             });
     }
 
+    const getUsuarios = async () => {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:5000/usuarios'
+        };
+
+        await axios
+            .request(options)
+            .then(function (response) {
+                setUsuarios(response.data);
+            }).catch(function (error) {
+                console.error(error);
+            });
+
+    }
+
+    const getConsecutivo = async () => {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:5000/factura/616b0537a759c8a72b1cdeac'
+        };
+
+        await axios
+            .request(options)
+            .then(function (response) {
+                setCosecutivo(response.data);
+            }).catch(function (error) {
+                console.error(error);
+            });
+
+    }
+
     useEffect(() => {
         getProductos();
+        getUsuarios();
+        getConsecutivo();
     }, []); 
 
     useEffect(() => {
@@ -64,6 +100,9 @@ const VentasRegistrar = () => {
       }).catch(function (error) {
         console.error(error);
       });
+      return(
+        <Ventas/>
+      )
     
     };
 
@@ -78,25 +117,40 @@ const VentasRegistrar = () => {
                     <div className="contenedorformularioventa">
 
                         <input 
-                            value={codigo}
-                            type="number"
+
+                        
+                            value={codigo}                                     
                             onChange={(e) => {
                                 setCodigo(e.target.value);
-                                }}
-                            placeholder="Codigo de Venta" 
+                            }}
+                            placeholder="consecutivo"
+                            
+                                                          
                             required 
+                            disabled
                         />
 
-                        <input 
+                        <select                      
+                        
                             value={id_vendedor}
-                            type="number"
                             onChange={(e) => {
-                                setId_vendedor(e.target.value);
-                                }}
-                            placeholder="id_vendedor" 
-                            required 
-                        />
+                            setId_vendedor(e.target.value);
+                            }}
+                            defaultValue={0} 
+                            required
+                            > 
+                            <option value={0}>Seleccionar Id Vendedor</option>  
 
+                            {
+                            usuarios.map((usuarios, key) => (
+                                <option key={usuarios._id}>
+                                    {usuarios.id}
+                                </option>
+                            ))
+                            }
+                        </select>
+
+                        
                         <select
                             value={productoventa}
                             onChange={(e) => {
@@ -116,11 +170,7 @@ const VentasRegistrar = () => {
                             } 
                         </select>
 
-                        <input
-                            disabled 
-                            placeholder="Presentacion"                            
-                        />
-
+                        
                         <input 
                             value={cantidad}
                             type="number"
@@ -158,13 +208,29 @@ const VentasRegistrar = () => {
                         
 
                                                         
-                        <button type="submit" className="Botonguardarventa"
+                        
+
+                        <div>
+                            <button type="submit" className="Botonguardarventa"
+                                
+                                onClick={() => {
+                                    enviarDatos();
+                                }}> 
+                                
+                                    Guardar
+                                                               
+                            </button> 
+                            <Link 
+                            className="Botonguardarventa"
+                            type="submit"
+                            to="/admin/Ventas">
+                                Regresar a Ventas
+                            </Link>
+
+                        </div>
+                        
                             
-                            onClick={() => {
-                                enviarDatos();
-                            }}> 
-                                Guardar
-                        </button>  
+                        
                         
                         
                     </div>

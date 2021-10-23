@@ -51,7 +51,7 @@ const Ventas = () => {
   }, []);
 
     return (
-        
+    <body>
      <div>
        <div className="main">
           <div className="modulo">
@@ -84,11 +84,11 @@ const Ventas = () => {
             <table>
               <tr >
                 <th >Codigo</th>
-                <th >id_vendedor</th>
-                <th >producto</th>
-                <th >cantidad</th>
-                <th >precio</th>
-                <th >total</th>
+                <th >Vendedor</th>
+                <th >Producto</th>
+                <th >Cantidad</th>
+                <th >Precio</th>
+                <th >Total</th>
                 <th >Modificaciones</th>                          
               </tr>
                               
@@ -141,7 +141,7 @@ const Ventas = () => {
     
         </div>
       </div>   
-
+    </body>  
     )
 }
 

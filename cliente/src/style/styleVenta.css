@@ -21,6 +21,11 @@
   color: #ffffff;
 }
 
+body{
+  scroll-behavior:smooth;
+  
+}
+
 
 .btn-block {
   width: 100%;
@@ -55,6 +60,7 @@ html {
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
+  padding: 7px 12px;
 }
 
 
