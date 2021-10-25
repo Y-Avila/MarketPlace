@@ -117,17 +117,15 @@ const VentasRegistrar = () => {
                     <div className="contenedorformularioventa">
 
                         <input 
-
-                        
+                            type="number"
                             value={codigo}                                     
                             onChange={(e) => {
                                 setCodigo(e.target.value);
                             }}
                             placeholder="consecutivo"
-                            
-                                                          
+                                                   
                             required 
-                            disabled
+                            
                         />
 
                         <select                      
