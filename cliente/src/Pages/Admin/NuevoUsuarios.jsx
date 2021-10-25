@@ -5,24 +5,25 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-const base_url="https://prueba-3333333.herokuapp.com/";
+const base_url=process.env.REACT_APP_RUTA_SERVER;
+
 
 const NuevoUsuarios = () => {
-  const [nombre, setNombre] = useState();
-  const [apellidos, setApellidos] = useState();
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
+  
 
   const enviarDatos = async () => {
     const options = {
       method: "POST",
-      url: `${base_url}usuarios`,
+      url: `${base_url}auth/new`,
       headers: { "Content-Type": "application/json" },
       data: {
-        nombre: nombre,
-        apellidos: apellidos,
+        name: name,
         email: email,
-        rol: "Selecione el Rol ",
-        estado: "Selecione el estado",
+        password: "wm5%Q!G9&YLc3uz",
+        estado: "Inactivo",
+        rol: "indefinido"        
       },
     };
 
@@ -30,11 +31,13 @@ const NuevoUsuarios = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data);
+      toast.success("Usuario Creado Con Exito...");  
       })
       .catch(function (error) {
         console.error(error);
+      toast.error("Verifica la información")  
       });
-    toast.success("Usuario Creado Con Exito...");
+    
   };
   return (
     <div>
@@ -48,26 +51,17 @@ const NuevoUsuarios = () => {
               <input
                 id="nombre"
                 type="text"
-                value={nombre}
+                value={name}
                 onChange={(e) => {
-                  setNombre(e.target.value);
-                }}
+                  setName(e.target.value);
+                }} 
                 size="50"
-                placeholder="Ingrese su nombre"
-                minlength="3" 
-                required
+                placeholder="Ingrese su nombre completo"
+                required ="true" 
+                minlength="8" 
+                maxLength= "80"
               />
-              <input
-                id="apellido"
-                type="text"
-                value={apellidos}
-                onChange={(e) => {
-                  setApellidos(e.target.value);
-                }}
-                size="50"
-                placeholder="Ingrese su apellidos"
-                required
-              />
+             
               <input
                 id="email"
                 type="email"
@@ -77,7 +71,8 @@ const NuevoUsuarios = () => {
                 }}
                 size="50"
                 placeholder="Ingrese su email"
-                required
+                required ="true" 
+                pattern= "/^\S+@\S+$/i"
               />
             </div>
             <div className="botones2">

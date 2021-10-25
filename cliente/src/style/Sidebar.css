@@ -125,4 +125,24 @@ h3 {
   margin-right: 2rem;
 }
 
+.user-name{
+  
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  
+}
+
+.sesion{
+  
+  text-decoration: none;
+  font-size: 14px;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
 /* fin de la base del menu */

@@ -259,3 +259,54 @@
     .eliminarUsuarioBtnNo:hover{
       background-color: rgb(236, 38, 38);
     }
+    .eliminarProducto{
+      display: flex;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .eliminarProductoH1{
+      text-align: center;
+      color: black;
+    }
+
+    .eliminarUsuarioBotones{
+     display: flex;
+     width: 100%;
+     align-items: center;
+     justify-content: center;
+     padding-top: 1rem;
+     padding-bottom: 1rem; 
+    }
+
+    .eliminarProductoBtnSi{
+     font-size:1.5rem ;
+     margin-left: 2rem;
+      margin-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: rgb(91, 245, 158);
+
+    }
+
+    .eliminarProductoBtnNo{
+      font-size:1.5rem ;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: rgb(243, 75, 75);
+
+    }
+    
+    .eliminarProductoBtnSi:hover{
+      background-color: rgb(36, 170, 94);
+    }
+
+    .eliminarProductoBtnNo:hover{
+      background-color: rgb(236, 38, 38);
+    }
