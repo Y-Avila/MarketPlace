@@ -58,7 +58,7 @@ const EditarProducto = ({ producto, setEjecutarConsulta,productos }) => {
         name: producto.name,
         presentacion: producto.presentacion,
         cantidad: producto.referencia,
-        cod_barras: producto.bar_code,
+        bar_code: producto.bar_code,
     });
 
     const ActualizarProducto = async () => {
@@ -143,7 +143,7 @@ return (
                         type="text"
                         value={newProducto.grupo}
                         onChange={(e) =>
-                            setNewProducto({ ...newProducto, nombre: e.target.value })
+                            setNewProducto({ ...newProducto, grupo: e.target.value })
                         }
                     />
                 </td>
@@ -169,9 +169,9 @@ return (
                 <td>
                     <input
                         type="text"
-                        value={newProducto.referencia}
+                        value={newProducto.cantidad}
                         onChange={(e) =>
-                            setNewProducto({ ...newProducto, referencia: e.target.value })
+                            setNewProducto({ ...newProducto, cantidad: e.target.value })
                         }
                     />
                 </td>
@@ -231,7 +231,7 @@ return (
                 <Dialog open={openDialog}>
                     <div className="eliminarProducto">
                         <h1 className="eliminarProductoH1">
-                            ¿Está seguro de querer eliminar el Usuario?
+                            ¿Está seguro de querer eliminar el Producto ?
                         </h1>
                         <div className="eliminarProductoBotones">
                             <button
@@ -270,9 +270,9 @@ const TablaProducto = ({ listaProducto, setEjecutarConsulta }) => {
                 <table className="tableProducto">
                     <thead>
                         <th>Id</th>
+                        <th>Nombre</th>
                         <th>Grupo</th>
                         <th>Descripcion</th>
-                        <th>name</th>
                         <th>Presentacion</th>
                         <th>Cantidad</th>
                         <th>Codigo de Barras</th>
@@ -296,5 +296,3 @@ const TablaProducto = ({ listaProducto, setEjecutarConsulta }) => {
 };
 
 export default Producto;
-
-

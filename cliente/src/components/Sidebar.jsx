@@ -7,7 +7,7 @@ import useAuth from "Hook/useAuth";
 const Sidebar = () => {
   const auth = useAuth();
 
-  console.log(auth.user.name);
+  
 
   return (
     <>
@@ -16,13 +16,13 @@ const Sidebar = () => {
           <Link to="/admin">
             <Logo />
           </Link>
-          <span className="sesion">Sesion Activa</span>
-          <span className="user-name">{auth.user.name}</span>
+          
         </div>
         
         {auth.user && auth.user.rol === "Administrador" ? (
           <div>
-            
+            <span className="sesion">Sesion Activa</span>
+          <span className="user-name">{auth.user.name}</span>
             <Link to="/admin/usuarios">Usuarios</Link>
 
             <Link to="/admin/ventas/facturar"> Facturación </Link>
