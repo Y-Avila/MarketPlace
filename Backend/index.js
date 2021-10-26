@@ -22,30 +22,28 @@ app.use(express.static('public'));
 // Lectura y parseo del body
 app.use( express.json() );
 
-// app.use((req, res, next) => {
 
-//     // Dominio que tengan acceso (ej. 'http://example.com')
-//        res.setHeader('Access-Control-Allow-Origin', '*');
-    
-//     // Metodos de solicitud que deseas permitir
-//        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    
-//     // Encabecedados que permites (ej. 'X-Requested-With,content-type')
-//        res.setHeader('Access-Control-Allow-Headers', 'Content-Type', 'text/plain');
-    
-//     next();
-//     })
-
+app.use((req, res, next) => {
+   res.setHeader("Access-Control-Allow-Origin", "*");
+   res.setHeader(
+     "Access-Control-Allow-Headers",
+     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+   );
+   res.setHeader(
+     "Access-Control-Allow-Methods",
+     "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+   );
+   next();
+ });
 
 /**Rutas */
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/productos', require('./routes/productos'));
-app.use('/api/facturas', require('./routes/facturas'));
-
+app.use('/api/ventas', require('./routes/ventas'));
 
 
 /** Escuchar las peticiones */
 
-app.listen(process.env.PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${ process.env.PORT }`)
+app.listen((process.env.PORT || 5000), () => {
+    console.log(`Servidor corriendo en el puerto 5000`)
 })

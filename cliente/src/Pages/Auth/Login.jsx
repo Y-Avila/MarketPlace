@@ -23,7 +23,7 @@ const Login = () => {
           'Authorization': `Bearer ${resp.tokenId}`
         } 
       });
-      console.log(data);
+      // console.log(data);
       if (status === 200){
         auth.setToken(data.token); 
       auth.setUser({ uid: data.uid, name: data.name, rol: data.rol });

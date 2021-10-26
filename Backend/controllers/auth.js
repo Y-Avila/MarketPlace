@@ -194,7 +194,7 @@ const validarUsuarioGoogle = async (req, resp = response) => {
             
         if (usuario) {
 
-            console.log(usuario.rol)
+            
 
             if (usuario.estado === 'Inactivo' || usuario.rol === 'Indefinido' ) {
                 // 

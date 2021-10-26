@@ -3,7 +3,6 @@
     host + /api/productos
 */
 const { getProductos, crearProducto, actualizarProducto, eliminarProducto} = require('../controllers/productos');
-const { validarJWT } = require('../middlewares/validar-jwt');
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');

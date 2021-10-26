@@ -6,9 +6,6 @@ import useAuth from "Hook/useAuth";
 
 const Sidebar = () => {
   const auth = useAuth();
-
-  
-
   return (
     <>
       <div className="sidenav">
@@ -37,7 +34,7 @@ const Sidebar = () => {
           </div>
         ) : (
           <div>
-            
+             
             <Link to="/admin/ventas/facturar"> Facturación </Link>
 
             <Link to="/admin/ventas"> Ventas </Link>

@@ -1,44 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import 'style/styleVenta.css';
+import React from 'react';
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import  {Tooltip , Dialog} from "@material-ui/core";
-
-
-import VentasEditar from './VentasEditar';
 import "react-toastify/dist/ReactToastify.css";
-
 import { toast} from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import { nanoid } from "nanoid";
+import useAuth from 'Hook/useAuth';
+
+const base_url = process.env.REACT_APP_RUTA_SERVER;
 
 const Ventas = () => {
-
+  const auth = useAuth();
   const [ventas, setVentas] = useState([]);
 
 
   const getVentas = async () => {
 
-      const options = {
-          method: 'GET',
-          url: 'http://localhost:5000/ventas'
-      };
+    const options = {
+      method: "GET", url: `${base_url}ventas`,
+      headers: {
+          'Authorization': `Bearer ${auth.token}`
+      }
+  };
 
-      await axios
-          .request(options)
-          .then(function (response) {
-              setVentas(response.data);
-          }).catch(function (error) {
-              console.error(error);
-          });
+  await axios
+      .request(options)
+      .then(function (response) {
+          setVentas(response.data.ventas);
+      })
+      .catch(function (error) {
+          console.error(error);
+      });
   }
 
  
   useEffect(() => {
       getVentas();
-  }, []);
+  }, );
 
   
 
@@ -54,12 +54,13 @@ export default Ventas;
 
 
 const EditarVentas = ({ ventas }) => {
+  const auth = useAuth();
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   
   const [newVenta, setNewVenta] = useState({    
 
-    codigo: ventas.codigo,
+    codigo: ventas._id,
     id_vendedor: ventas.id_vendedor,
     producto: ventas.producto,
     cantidad: ventas.cantidad,
@@ -69,12 +70,13 @@ const EditarVentas = ({ ventas }) => {
   });
 
   const actualizarVenta = async () => {
-    console.log(newVenta);
+   
 
     const options = {
       method: "PATCH",
-      url: `http://localhost:5000/ventas/${ventas._id}`,
-      headers: { "Content-Type": "application/json" },
+      url: `${base_url}ventas/${ventas._id}`,
+      headers: { "Content-Type": "application/json",
+      'Authorization': `Bearer ${auth.token}` },
       data: {
         ...newVenta,
       },
@@ -94,15 +96,17 @@ const EditarVentas = ({ ventas }) => {
        
       });
     setNewVenta(); 
+
   };
+
 
   const eliminarVenta = async () => {
     console.log(newVenta);
 
     const options = {
       method: "DELETE",
-      url: `http://localhost:5000/ventas/${ventas._id}`,
-      headers: { "Content-Type": "application/json" },
+      url: `${base_url}ventas/${ventas._id}`,
+      headers: { "Content-Type": "application/json",        'Authorization': `Bearer ${auth.token}` },
       data: {
         id: ventas._id,
       },
@@ -187,7 +191,7 @@ const EditarVentas = ({ ventas }) => {
         </>
       ) : (
         <>
-          <td id="codigo">{ventas.codigo}</td>
+          <td id="codigo">{ventas._id.slice(20)}</td>
           <td id="id_vendedor">{ventas.id_vendedor}</td>
           <td id="producto">{ventas.producto}</td>
           <td id="cantidad">{ventas.cantidad}</td>
@@ -282,37 +286,7 @@ const TablaVentas = ({ Listaventas }) => {
 
              {Listaventas.map((ventas) => {
                return <EditarVentas key={nanoid()} ventas={ventas} />;
-             })}
-                             
-               {/*
-                 ventas.map((ventas, key) => (
-                     <tr key={ventas._id}>
-                         <td>{ventas.codigo}</td>
-                         <td>{ventas.id_vendedor}</td>
-                         <td>{ventas.producto}</td>
-                         <td>{ventas.cantidad}</td>
-                         <td>{ventas.precio}</td>
-                         <td>{ventas.total}</td>
-                         <td>
-                           
-                           <Tooltip title="Editar Venta" arrow>
-                           <i
-                             className="fas fa-edit"
-                             to='/admin/usuarios'
-                           />
-                         </Tooltip>
-                         
-                         <Tooltip title="Eliminar Venta" arrow>
-                           <i
-                             onClick={() => eliminarVenta()}
-                             className="fas fa-trash-alt"
-                             to='/admin/usuarios'
-                           />
-                         </Tooltip>
-                         </td>
-                     </tr>
-                 ))
-               */}             
+             })}             
              
            </table>
 

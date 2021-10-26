@@ -5,13 +5,13 @@ import Editar from "Pages/Admin/EditarProducto";
 import Login from "Pages/Auth/Login";
 import Index from "Pages/Admin/Index";
 import Ventas from "Pages/Admin/Ventas";
-import Facturar from "Pages/Admin/Facturar";
 import NuevoUsuarios from "Pages/Admin/NuevoUsuarios";
 import PagError from "Pages/Auth/PagError";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import VendedorRoute from "./VendedorRoute";
 import RegistrarProductos from "Pages/Admin/RegistrarProductos";
+import VentasRegistrar from "Pages/Admin/VentasRegistar";
 
 export default function AppRouter() {
     return (
@@ -21,7 +21,7 @@ export default function AppRouter() {
 
                 <VendedorRoute exact path="/admin/usuarios" component={Usuarios} />
 
-                <PrivateRoute exact path="/admin/ventas/facturar" component={Facturar} />
+                <PrivateRoute exact path="/admin/ventas/facturar" component={VentasRegistrar} />
 
                 <PrivateRoute exact path="/admin/ventas" component={Ventas} />
 

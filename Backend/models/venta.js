@@ -1,27 +1,28 @@
 const { Schema, model } = require('mongoose');
 
-const ProductoSchema = Schema({
+const VentaSchema = Schema({
     
-    
-    codigo_factura: {
-        type: Schema.Types.ObjectId,
-        ref: 'Factura',
-        required: true
-    },
     id_vendedor:{
-        type: Schema.Types.ObjectId,
-        ref: 'Usuario',
+        type: String,
         required: true  
     },
-    cantidad_productos:{
-        type: Schema.Types.ObjectId.cantidad,
-        ref: 'Factura',
+    producto:{
+        type: String,
+        required: true  
+    },
+    cantidad:{
+        type: Number,
         required: true 
+    },
+    precio:{
+        type:Number,
+        require:true
     },
     total:{
         type:Number,
         require:true
     }
+    
 },{timestamps: true});
 
-module.exports = model('Producto', ProductoSchema);
+module.exports = model('Venta', VentaSchema);
