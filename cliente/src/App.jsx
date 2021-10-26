@@ -5,12 +5,13 @@ import PrivateLayout from "layouts/PrivateLayout";
 import AuthLayout from "layouts/AuthLayout";
 import Producto from "Pages/Admin/Producto";
 import Editar from "Pages/Admin/EditarProducto";
-import Registrar from "Pages/Admin/RegistrarProductos";
 import Login from "Pages/Auth/Login";
 import Index from "Pages/Admin/Index";
 import Ventas from "Pages/Admin/Ventas";
 import Facturar from "Pages/Admin/Facturar";
 import NuevoUsuarios from "Pages/Admin/NuevoUsuarios";
+import EditarProducto from "Pages/Admin/EditarProducto";
+
 
 
 
@@ -25,8 +26,8 @@ function App() {
               "/admin/ventas",
               "/admin/usuarios/crear",
               "/admin/usuarios",
-              "/admin/productos",
-              "/admin/productos/registrar",
+              "/admin/producto",
+              "/admin/producto/crear",
               "/admin/producto/editar",
               "/admin/",
             ]}
@@ -49,10 +50,10 @@ function App() {
                 <Route exact path="/admin/producto/editar">
                   <Editar />
                 </Route>
-                <Route exact path="/admin/productos/registrar">
-                  <Registrar />
+                <Route exact path="/admin/producto/crear">
+                  <EditarProducto/>
                 </Route>
-                <Route exact path="/admin/productos">
+                <Route exact path="/admin/producto">
                   <Producto />
                 </Route>
                 <Route exact path="/admin/">

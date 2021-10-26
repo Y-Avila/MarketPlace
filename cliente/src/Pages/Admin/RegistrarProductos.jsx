@@ -1,64 +1,71 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "style/style_productos.css";
+import "style/styleUsuarios.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import useAuth from "Hook/useAuth";
+
+const base_url = process.env.REACT_APP_RUTA_SERVER;
 
 const RegistrarProductos = () => {
-    const [id, setid] = useState();
-    const [grupo, setgrupo] = useState();
-    const [descripcion, setdescripcion] = useState();
-    const [iva, setiva] = useState();
-    const [presentacion, setpresentacion] = useState();
-    const [cantidad, setcantidad] = useState();
-    const [cod_barras, setcod_barras] = useState();
+  const auth = useAuth();
+  const [grupo, setgrupo] = useState();
+  const [name, setname] = useState();
+  const [descripcion, setdescripcion] = useState();
+  const [presentacion, setpresentacion] = useState();
+  const [referencia, setreferencia] = useState();
+  const [bar_code, setbar_code] = useState();
 
-    const enviarDatos = async() => {
+  const enviarDatos = async () => {
     const options = {
-    method: "POST",
-    url: "http://localhost:5000/producto",
-    headers: { "Content-Type": "application/json" },
-    data: {
-        id: id,
-        grupo: grupo,
-        descripcion: descripcion,
-        iva: iva,
-        presentacion: presentacion,
-        cantidad: cantidad,
-        cod_barras:cod_barras ,
-    },
-};
+      method: "POST",
+      url: `${base_url}productos/`,
+      headers: {
+        Authorization: `Bearer ${auth.token}`,
+      },
+      data: {
+        
+        grupo:grupo,
+        descripcion:descripcion,
+        name:name,
+        presentacion:presentacion,
+        referencia:referencia,
+        bar_code:bar_code,
+      },
+    };
 
     await axios
-    .request(options)
-    .then(function (response) {
+      .request(options)
+      .then(function (response) {
         console.log(response.data);
-    })
-    .catch(function (error) {
+      })
+      .catch(function (error) {
         console.error(error);
-    });
+      });
     toast.success("Producto Creado Con Exito...");
-};
-    return (
+  };
+  return (
     <div>
-        <div className="main">
+      <div className="main">
         <div className="modulo">
-            <h3>Crear Producto nuevo</h3>
+          <h3>Crear Producto nuevo</h3>
         </div>
         <div className="container-formulario">
-            <form id="formulario">
+          <form id="formulario">
             <div className="inputForm" id="inputForm">
-                <select
-                id="id"
-                value={id}
+            <input
+                id="nombre"
+                className="inputtext"
+                type="text"
+                value={name}
                 onChange={(e) => {
-                  setid(e.target.value);
+                  setname(e.target.value);
                 }}
-                defaultValue={0} 
+                size="50"
+                placeholder="Ingrese el nombre"
                 required
-              >   
-              </select>
+              />
               <input
                 id="grupo"
                 className="inputtext"
@@ -83,17 +90,6 @@ const RegistrarProductos = () => {
                 required
               />
               <input
-                id="iva"
-                type="numb"
-                value={iva}
-                onChange={(e) => {
-                  setiva(e.target.value);
-                }}
-                size="50"
-                placeholder="Ingrese el IVA"
-                required
-              />
-              <input
                 id="presentacion"
                 type="text"
                 value={presentacion}
@@ -108,9 +104,9 @@ const RegistrarProductos = () => {
                 id="cantidad"
                 className="inputNumber"
                 type="number"
-                value={cantidad}
+                value={referencia}
                 onChange={(e) => {
-                  setcantidad(e.target.value);
+                  setreferencia(e.target.value);
                 }}
                 size="50"
                 placeholder="Ingrese la cantidad"
@@ -120,17 +116,18 @@ const RegistrarProductos = () => {
                 id="cod_barras"
                 className="inputNumber"
                 type="number"
-                value={cod_barras}
+                value={bar_code}
                 onChange={(e) => {
-                  setcod_barras(e.target.value);
+                  setbar_code(e.target.value);
                 }}
                 size="50"
                 placeholder="Escriba el código de barras"
                 required
-              /></div>
+              />
+            </div>
             <div className="botones2">
               <Link
-                to="/admin/usuarios"
+                to="/admin/productos"
                 className="botonGuardar"
                 id="btnGuardarActualizacion"
                 onClick={() => {
