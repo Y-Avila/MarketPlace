@@ -4,8 +4,8 @@ import '../../style/index.css';
 const Index = () => {
   return (
     <>
-      <div class="main-index">
-        <div class="modulo">
+      <div className="main-index">
+        <div className="modulo">
           <h3>Modulo de Ventas</h3>
         </div>
         

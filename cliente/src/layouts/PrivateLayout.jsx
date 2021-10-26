@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "components/Sidebar";
+import "../style/Sidebar.css";
 
 const PrivateLayout = ({ children }) => {
   return (
@@ -7,8 +8,8 @@ const PrivateLayout = ({ children }) => {
       <div className="espacioSidebar">
         <div className="sidebarMain">
           <Sidebar />
-          <main className="mainSidebar">{children}</main>
         </div>
+        <main className="mainSidebar">{children}</main>
       </div>
     </>
   );

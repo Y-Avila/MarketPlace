@@ -9,32 +9,38 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 
 const Usuarios = () => {
-
   const [usuarios, setUsuarios] = useState([]);
+  const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
-    const options = { method: "GET", url: "http://localhost:5000/usuarios" };
+    const obtenerUsuarios = async () => {
+     const options = { method: "GET", url: "http://localhost:5000/usuarios" };
 
-    axios
-      .request(options)
-      .then(function (response) {
-        setUsuarios(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+     await axios
+        .request(options)
+        .then(function (response) {
+          setUsuarios(response.data);
+          setEjecutarConsulta(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        }); 
+    };
+    if (ejecutarConsulta) {
+      obtenerUsuarios(false);
+    }
+  }, [ejecutarConsulta]);
 
-
+  
 
   return (
-    <div>
-      <TablaUsuarios listaUsuarios={usuarios} />
-    </div>
+    <>
+      <TablaUsuarios listaUsuarios={usuarios} setEjecutarConsulta={setEjecutarConsulta}/>
+    </>
   );
 };
 
-const EditarUsuarios = ({ usuarios }) => {
+const EditarUsuarios = ({ usuarios, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [newUsuario, setNewUsuario] = useState({
@@ -48,7 +54,7 @@ const EditarUsuarios = ({ usuarios }) => {
   });
 
   const actualizarUsuario = async () => {
-    console.log(newUsuario);
+  
 
     const options = {
       method: "PATCH",
@@ -57,7 +63,6 @@ const EditarUsuarios = ({ usuarios }) => {
       data: {
         ...newUsuario,
       },
-      
     };
 
     await axios
@@ -66,19 +71,18 @@ const EditarUsuarios = ({ usuarios }) => {
         console.log(response.data);
         toast.success("Usuario modificado con éxito");
         setEdit(false);
-        
+       setEjecutarConsulta(true);
         
       })
       .catch(function (error) {
         toast.error("Error modificando el usuario");
         console.error(error);
-       
-      });
-    setNewUsuario(); 
+        
+      }); 
   };
 
   const eliminarUsuario = async () => {
-    console.log(newUsuario);
+    
 
     const options = {
       method: "DELETE",
@@ -95,6 +99,7 @@ const EditarUsuarios = ({ usuarios }) => {
         console.log(response.data);
         toast.success("Usuario eliminado con éxito");
         setEdit(false);
+        setEjecutarConsulta(true);
       })
       .catch(function (error) {
         toast.error("Error eliminado el usuario");
@@ -179,21 +184,13 @@ const EditarUsuarios = ({ usuarios }) => {
               defaultValue=""
               required
             >
-              <option disabled Value="">
+              <option disabled value="">
                 Seleccione el estado
               </option>
               <option>inactivo</option>
               <option>Activo</option>
             </select>
           </td>
-          {/* <td>
-            <input
-              type="checkbox"
-              onChange={(e) =>
-                setNewUsuario({ ...newUsuario, estado: e.target.checked })
-              }
-            />
-          </td> */}
         </>
       ) : (
         <>
@@ -204,18 +201,9 @@ const EditarUsuarios = ({ usuarios }) => {
           <td id="email">{usuarios.email}</td>
           <td id="rol">
             {usuarios.rol}
-            {/* <select id="rol" defaultValue={usuarios.rol}>
-              <option>Elige el rol</option>
-              <option>vendedor</option>
-              <option>Administrador</option>
-            </select> */}
           </td>
           <td id="estado">
             {usuarios.estado}
-            {/* <div id="swEstado" className="switch-container">
-              <input type="checkbox" id="switch" />
-              <label for="switch" htmlFor="checkbox" className="lbl"></label>
-            </div> */}
           </td>
         </>
       )}
@@ -228,7 +216,7 @@ const EditarUsuarios = ({ usuarios }) => {
                   <i
                     onClick={() => actualizarUsuario()}
                     className="fas fa-check"
-                    to='/admin/usuarios'
+                    to="/admin/usuarios"
                   />
                 </Tooltip>
                 <Tooltip title="Cancelar Actualización" arrow>
@@ -277,19 +265,19 @@ const EditarUsuarios = ({ usuarios }) => {
   );
 };
 
-const TablaUsuarios = ({ listaUsuarios }) => {
+const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta}) => {
   useEffect(() => {}, [listaUsuarios]);
 
   return (
     <>
-      <div class="modulo">
+      <div className="modulo">
         <h3>Gestión de Usuarios</h3>
       </div>
-      <Link class="botonCrear" type="submit" to="/admin/usuarios/crear">
+      <Link className="botonCrear" type="submit" to="/admin/usuarios/crear">
         Crear Nuevo Usuario
       </Link>
       <div id="controlTabla">
-        <table class="tableUsuarios">
+        <table className="tableUsuarios">
           <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -301,12 +289,12 @@ const TablaUsuarios = ({ listaUsuarios }) => {
             <th>Modificaciones</th>
           </tr>
           {listaUsuarios.map((usuarios) => {
-            return <EditarUsuarios key={nanoid()} usuarios={usuarios} />;
+            return <EditarUsuarios key={nanoid()} usuarios={usuarios} setEjecutarConsulta={setEjecutarConsulta} />;
           })}
         </table>
       </div>
 
-      <ToastContainer position="bottom-center" autoClose={5000} />
+      <ToastContainer position="bottom-center" autoClose={3500} />
       <br />
     </>
   );
