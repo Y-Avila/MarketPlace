@@ -94,6 +94,7 @@ const EditarVentas = ({ ventas }) => {
        
       });
     setNewVenta(); 
+    
   };
 
   const eliminarVenta = async () => {
@@ -203,6 +204,7 @@ const EditarVentas = ({ ventas }) => {
                 <Tooltip title="Confirmar Actualización" arrow>
                   <i
                     onClick={() => actualizarVenta()}
+                   
                     className="fas fa-check"
                     to='/admin/ventas'
                   />

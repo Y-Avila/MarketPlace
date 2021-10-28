@@ -63,4 +63,75 @@ html {
   padding: 7px 12px;
 }
 
+#controlTabla {
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 0%;
+}
 
+.fa-edit{
+  margin-right: 2rem;
+}
+
+.fa-check{
+  margin-right: 2rem; 
+}
+
+
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin-left: 5%;
+}
+.eliminarVenta{
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.eliminarVentaH1{
+  text-align: center;
+  color: black;
+}
+
+.eliminarVentaBotones{
+ display: flex;
+ width: 100%;
+ align-items: center;
+ justify-content: center;
+ padding-top: 1rem;
+ padding-bottom: 1rem; 
+}
+
+.eliminarVentaBtnSi{
+ font-size:1.5rem ;
+ margin-left: 2rem;
+  margin-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(91, 245, 158);
+
+}
+
+.eliminarVentaBtnNo{
+  font-size:1.5rem ;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(243, 75, 75);
+
+}
+
+.eliminarVentaBtnSi:hover{
+  background-color: rgb(36, 170, 94);
+}
+
+.eliminarVentaBtnNo:hover{
+  background-color: rgb(236, 38, 38);
+}
