@@ -5,43 +5,41 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
+const base_url=process.env.REACT_APP_RUTA_SERVER;
+
+
 const NuevoUsuarios = () => {
-  const [tipoID, setTipoID] = useState();
-  const [ID, setID] = useState();
-  const [nombre, setNombre] = useState();
-  const [apellidos, setApellidos] = useState();
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
-  const [telefono, setTelefono] = useState();
-
-  const enviarDatos = async() => {
-   const options = {
-    method: "POST",
-    url: "http://localhost:5000/usuarios",
-    headers: { "Content-Type": "application/json" },
-    data: {
-      tipoid:tipoID,
-      id: ID,
-      nombre: nombre,
-      apellidos: apellidos,
-      telefono: telefono,
-      email: email,
-      rol: "administrador",
-      estado: "inactivo",
-    },
-  };
-
-  await axios
-    .request(options)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-    toast.success("Usuario Creado Con Exito...");
   
-};
-    return (
+
+  const enviarDatos = async () => {
+    const options = {
+      method: "POST",
+      url: `${base_url}auth/new`,
+      headers: { "Content-Type": "application/json" },
+      data: {
+        name: name,
+        email: email,
+        password: "wm5%Q!G9&YLc3uz",
+        estado: "Inactivo",
+        rol: "indefinido"        
+      },
+    };
+
+    await axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      toast.success("Usuario Creado Con Exito...");  
+      })
+      .catch(function (error) {
+        console.error(error);
+      toast.error("Verifica la información")  
+      });
+    
+  };
+  return (
     <div>
       <div className="main">
         <div className="modulo">
@@ -50,54 +48,20 @@ const NuevoUsuarios = () => {
         <div className="container-formulario">
           <form id="formulario">
             <div className="inputForm" id="inputForm">
-              <select
-                id="tipoId"
-                value={tipoID}
-                onChange={(e) => {
-                  setTipoID(e.target.value);
-                }}
-                defaultValue={0} 
-                required
-              >
-                <option disabled value={0}>Seleccionar tipo de documento</option>
-                <option>Cedula de Ciudadania</option>
-                <option>Cedula de Extranjeria</option>
-                <option>Pasaporte </option>
-              </select>
-              <input
-                id="cedula"
-                className="inputNumber"
-                type="number"
-                value={ID}
-                onChange={(e) => {
-                  setID(e.target.value);
-                }}
-                size="50"
-                placeholder="Ingrese su identificacion"
-                required
-              />
               <input
                 id="nombre"
                 type="text"
-                value={nombre}
+                value={name}
                 onChange={(e) => {
-                  setNombre(e.target.value);
-                }}
+                  setName(e.target.value);
+                }} 
                 size="50"
-                placeholder="Ingrese su nombre"
-                required
+                placeholder="Ingrese su nombre completo"
+                required ="true" 
+                minlength="8" 
+                maxLength= "80"
               />
-              <input
-                id="apellido"
-                type="text"
-                value={apellidos}
-                onChange={(e) => {
-                  setApellidos(e.target.value);
-                }}
-                size="50"
-                placeholder="Ingrese su apellidos"
-                required
-              />
+             
               <input
                 id="email"
                 type="email"
@@ -107,19 +71,8 @@ const NuevoUsuarios = () => {
                 }}
                 size="50"
                 placeholder="Ingrese su email"
-                required
-              />
-              <input
-                id="telefono"
-                className="inputNumber"
-                type="number"
-                value={telefono}
-                onChange={(e) => {
-                  setTelefono(e.target.value);
-                }}
-                size="50"
-                placeholder="Ingrese su telefono"
-                required
+                required ="true" 
+                pattern= "/^\S+@\S+$/i"
               />
             </div>
             <div className="botones2">
