@@ -10,15 +10,18 @@ import { nanoid } from "nanoid";
 import useAuth from "Hook/useAuth";
 
 
+
 const base_url=process.env.REACT_APP_RUTA_SERVER;
  
 const Usuarios = () => {
   const auth = useAuth();
+
   const [usuarios, setUsuarios] = useState([]);
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
     const obtenerUsuarios = async () => {
+
       const options = {
         method: "GET",
         url:`${base_url}auth/usuario`,
@@ -30,31 +33,39 @@ const Usuarios = () => {
         .request(options)
         .then(function (response) {
           setUsuarios(response.data.usuario);
+
           setEjecutarConsulta(false);
         })
         .catch(function (error) {
           console.error(error);
+
         });
+
     };
     if (ejecutarConsulta) {
       obtenerUsuarios(false);
     }
+
   }, [ejecutarConsulta, auth]);
 
 
+  
+
   return (
     <>
-   
+
       <TablaUsuarios
         listaUsuarios={usuarios}
         setEjecutarConsulta={setEjecutarConsulta}
       />
+
     </>
   );
 };
 
 const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
   const auth = useAuth();
+
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [newUsuario, setNewUsuario] = useState({
@@ -66,6 +77,7 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
   });
 
   const actualizarUsuario = async () => {
+
     const options = {
       method: "PATCH",
       url: `${base_url}auth/${usuarios._id}`,
@@ -73,6 +85,7 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
       'Authorization': `Bearer ${auth.token}`
     },
       data: newUsuario,
+
     };
 
     await axios
@@ -80,15 +93,19 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
       .then(function (response) {
         toast.success("Usuario modificado con éxito");
         setEdit(false);
+
         setEjecutarConsulta(true);
+
       })
       .catch(function (error) {
         toast.error("Error modificando el usuario");
         console.error(error);
+
       });
   };
 
   const eliminarUsuario = async () => {
+
     const options = {
       method: "DELETE",
       url: `${base_url}auth/${usuarios._id}`,
@@ -156,7 +173,9 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
               required
             >
               <option disabled value="">
+
                 Seleccione el Rol
+
               </option>
               <option >Indefinido</option>
               <option >Vendedor</option>
@@ -168,9 +187,11 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
         <>
           <td id="nombre">{usuarios.name}</td>
           <td id="email">{usuarios.email}</td>
+
           <td id="estado">{usuarios.estado}</td>
           <td id="rol">{usuarios.rol}</td>
           
+
         </>
       )}
       <>
@@ -231,7 +252,9 @@ const EditarUsuarios = ({ usuarios, setEjecutarConsulta}) => {
   );
 };
 
+
 const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
+
   useEffect(() => {}, [listaUsuarios]);
 
   return (
@@ -242,6 +265,7 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
       <Link className="botonCrear" type="submit" to="/admin/usuarios/crear">
         Crear Nuevo Usuario
       </Link>
+
       <div className="controlTabla">
         <table className="tableUsuarios">
           <thead>
@@ -264,6 +288,7 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
               );
             })}
           </tbody>
+
         </table>
       </div>
 

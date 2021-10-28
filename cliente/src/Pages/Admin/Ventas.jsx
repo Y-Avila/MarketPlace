@@ -1,19 +1,29 @@
+
 import React from 'react';
+
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import  {Tooltip , Dialog} from "@material-ui/core";
+
 import "react-toastify/dist/ReactToastify.css";
 import { toast} from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import { nanoid } from "nanoid";
 import useAuth from 'Hook/useAuth';
 
+
 const base_url = process.env.REACT_APP_RUTA_SERVER;
+
 
 const Ventas = () => {
   const auth = useAuth();
   const [ventas, setVentas] = useState([]);
+
+
+import { toast} from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { nanoid } from "nanoid";
 
 
   const getVentas = async () => {
@@ -33,12 +43,15 @@ const Ventas = () => {
       .catch(function (error) {
           console.error(error);
       });
+
   }
 
  
   useEffect(() => {
       getVentas();
+
   }, );
+
 
   
 
@@ -54,13 +67,17 @@ export default Ventas;
 
 
 const EditarVentas = ({ ventas }) => {
+
   const auth = useAuth();
+
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   
   const [newVenta, setNewVenta] = useState({    
 
+
     codigo: ventas._id,
+
     id_vendedor: ventas.id_vendedor,
     producto: ventas.producto,
     cantidad: ventas.cantidad,
@@ -70,13 +87,14 @@ const EditarVentas = ({ ventas }) => {
   });
 
   const actualizarVenta = async () => {
-   
+
 
     const options = {
       method: "PATCH",
       url: `${base_url}ventas/${ventas._id}`,
       headers: { "Content-Type": "application/json",
       'Authorization': `Bearer ${auth.token}` },
+
       data: {
         ...newVenta,
       },
@@ -97,7 +115,9 @@ const EditarVentas = ({ ventas }) => {
       });
     setNewVenta(); 
 
+
   };
+
 
 
   const eliminarVenta = async () => {
@@ -105,8 +125,10 @@ const EditarVentas = ({ ventas }) => {
 
     const options = {
       method: "DELETE",
+
       url: `${base_url}ventas/${ventas._id}`,
       headers: { "Content-Type": "application/json",        'Authorization': `Bearer ${auth.token}` },
+
       data: {
         id: ventas._id,
       },
@@ -191,7 +213,9 @@ const EditarVentas = ({ ventas }) => {
         </>
       ) : (
         <>
+
           <td id="codigo">{ventas._id.slice(20)}</td>
+
           <td id="id_vendedor">{ventas.id_vendedor}</td>
           <td id="producto">{ventas.producto}</td>
           <td id="cantidad">{ventas.cantidad}</td>
@@ -207,6 +231,7 @@ const EditarVentas = ({ ventas }) => {
                 <Tooltip title="Confirmar Actualización" arrow>
                   <i
                     onClick={() => actualizarVenta()}
+
                     className="fas fa-check"
                     to='/admin/ventas'
                   />
@@ -286,7 +311,9 @@ const TablaVentas = ({ Listaventas }) => {
 
              {Listaventas.map((ventas) => {
                return <EditarVentas key={nanoid()} ventas={ventas} />;
+
              })}             
+
              
            </table>
 
@@ -298,4 +325,6 @@ const TablaVentas = ({ Listaventas }) => {
      </div>   
    </body>  
    );  
+
 };
+

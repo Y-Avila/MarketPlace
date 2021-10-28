@@ -17,6 +17,7 @@ body {
 .espacioSidebar {
   /* flexbox*/
   /*display: flex;
+
     height: 100%;
     width: 100%; */
   /* grip */
@@ -26,6 +27,7 @@ body {
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
+
 
 .sidebarMain {
   /* flexbox*/
@@ -51,6 +53,7 @@ body {
   grid-row: 1;
   padding-right: 4%;
 }
+
 
 a,
 .centrado {
@@ -95,7 +98,9 @@ a,
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {
+
     padding-top: 15px;
+
   }
   .sidenav a {
     font-size: 18px;
@@ -127,11 +132,13 @@ h3 {
 
 .user-name{
   
+
   text-decoration: none;
   font-size: 25px;
   color: #ffffff;
   display: block;
   text-align: center;
+
   
 }
 

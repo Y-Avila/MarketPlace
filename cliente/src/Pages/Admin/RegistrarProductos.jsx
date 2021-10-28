@@ -146,4 +146,6 @@ const RegistrarProductos = () => {
   );
 };
 
+
 export default RegistrarProductos;
+
