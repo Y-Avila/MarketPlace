@@ -1,0 +1,17 @@
+p{
+    color:#ffffff;
+    font-size: 2.5rem;
+    font-style: italic;
+    
+  }
+
+  .bienvenidos{
+      margin-top: 15%;
+  }
+
+  .main-index{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+  }

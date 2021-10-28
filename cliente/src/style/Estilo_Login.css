@@ -1,0 +1,34 @@
+
+
+
+.login-container {
+  /* background-color: #282c34; */
+  background-color: #3a0ca3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.login-container img{
+  width: 18%;
+}
+
+.link{
+  color: bisque;
+}
+
+span{
+  font-size: medium;
+  
+}
+
+.titulo{
+  font-size: xx-large;
+  
+}
+
+
